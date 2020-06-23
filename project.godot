@@ -16,8 +16,11 @@ _global_script_class_icons={
 [application]
 
 config/name="emergent-narrative-testbed"
+run/main_scene="res://src/Main.tscn"
 config/icon="res://icon.png"
 
 [rendering]
 
+quality/shadows/filter_mode=2
+quality/filters/msaa=3
 environment/default_environment="res://default_env.tres"
