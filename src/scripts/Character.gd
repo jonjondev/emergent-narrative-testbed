@@ -7,15 +7,24 @@ var velocity: Vector3 = Vector3.ZERO
 var thinking: bool
 var current_path: PoolVector3Array
 
+var behaviour_algorithm: BehaviourTree = SimpleBehaviourTree.new(self)
+var blackboard = {}
+
 onready var anim_state_machine: AnimationNodeStateMachinePlayback = $Model/AnimationTree["parameters/playback"]
 onready var navigation: Navigation  = $"../Navigation"
 onready var emote_text: Spatial = $"3DText"
+
+func _ready():
+	var _err = $AITime.connect("timeout", self , "ai_process")
 
 func _physics_process(delta) -> void:
 	if not thinking:
 		navigate(delta)
 	velocity += gravity * delta 
 	velocity = move_and_slide(velocity)
+
+func ai_process():
+	behaviour_algorithm.update()
 
 func navigate(delta) -> void:
 	var move: Vector3 = Vector3.ZERO
@@ -28,8 +37,7 @@ func navigate(delta) -> void:
 			move = move.normalized() * speed
 	else:
 		thinking = true
-		emote("*thinking*")
-		get_tree().create_timer(rand_range(0.5, 2.0)).connect("timeout", self, "move_to_random_location")
+		#get_tree().create_timer(rand_range(0.5, 2.0)).connect("timeout", self, "move_to_random_location")
 	move_and_slide(move)
 	
 	var initial_transform: Transform = get_transform()
@@ -42,13 +50,18 @@ func navigate(delta) -> void:
 	anim_state_machine.travel("idle" if move == Vector3.ZERO else "walk")
 
 func move_to_random_location():
-	thinking = false
 	var bounds: int = 4.0
 	set_path_to(Vector3(rand_range(-bounds, bounds), 0, rand_range(-bounds, bounds)))
-	emote("*moving*")
 
-func set_path_to(target_location):
+func set_path_to(target_location: Vector3) -> void:
+	thinking = false
 	current_path = navigation.get_simple_path(global_transform.origin, target_location)
 
 func emote(text: String) -> void:
 	emote_text.text = text
+
+func is_near(target):
+	return target and distance_to(target) < 0.2
+
+func distance_to(target):
+	return translation.distance_to(target.translation)
