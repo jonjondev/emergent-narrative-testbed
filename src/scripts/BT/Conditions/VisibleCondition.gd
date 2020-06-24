@@ -4,8 +4,8 @@ extends Condition
 var target_id
 var target
 
-func _init(o, target).(o):
-	target_id = target
+func _init(o, id).(o):
+	target_id = id
 
 func on_initialise() -> void:
 	target = owner.get_tree().get_nodes_in_group(target_id)[0]
