@@ -182,7 +182,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="emergent-narrative-testbed"
+config/name="Emergent Narrative Testbed"
 run/main_scene="res://src/Main.tscn"
 config/icon="res://icon.png"
 
