@@ -9,6 +9,7 @@ var current_path: PoolVector3Array
 
 onready var anim_state_machine: AnimationNodeStateMachinePlayback = $Model/AnimationTree["parameters/playback"]
 onready var navigation: Navigation  = $"../Navigation"
+onready var emote_text: Spatial = $"3DText"
 
 func _physics_process(delta) -> void:
 	if not thinking:
@@ -27,6 +28,7 @@ func navigate(delta) -> void:
 			move = move.normalized() * speed
 	else:
 		thinking = true
+		emote("*thinking*")
 		get_tree().create_timer(rand_range(0.5, 2.0)).connect("timeout", self, "move_to_random_location")
 	move_and_slide(move)
 	
@@ -43,6 +45,10 @@ func move_to_random_location():
 	thinking = false
 	var bounds: int = 4.0
 	set_path_to(Vector3(rand_range(-bounds, bounds), 0, rand_range(-bounds, bounds)))
+	emote("*moving*")
 
 func set_path_to(target_location):
 	current_path = navigation.get_simple_path(global_transform.origin, target_location)
+
+func emote(text: String) -> void:
+	emote_text.text = text
