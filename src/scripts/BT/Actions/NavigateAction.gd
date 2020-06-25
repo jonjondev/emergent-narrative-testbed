@@ -9,13 +9,14 @@ func _init(o, id).(o):
 
 func on_initialise() -> void:
 	target = owner.get_tree().get_nodes_in_group(target_id)[0]
-	owner.set_path_to(target.translation)
+	owner.navigation.navigate_to(target.translation)
 	.on_initialise()
 
 func update() -> int:
-	if owner.thinking:
-		return Status.SUCCESS
-	return Status.RUNNING
+	if owner.navigation.is_navigating():
+		return Status.RUNNING
+	return Status.SUCCESS
+	
 
 func on_terminate(status) -> void:
 	.on_terminate(status)
