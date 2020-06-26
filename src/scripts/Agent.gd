@@ -1,7 +1,10 @@
 extends KinematicBody
 
 var behaviour_algorithm: BehaviourTree = SimpleBehaviourTree.new(self)
-var blackboard = {}
+var blackboard = {
+	"hunger": 1000,
+	"energy": 1000,
+}
 
 onready var navigation = NavigationManager.new(self)
 onready var emote_text: Spatial = $EmoteText
@@ -13,8 +16,15 @@ func _ready():
 
 func _physics_process(delta) -> void:
 	navigation.process_navigation(delta)
+	process_needs()
 
-func ai_process():
+func process_needs() -> void:
+	if blackboard.get("hunger") > 0:
+		blackboard["hunger"] -= 1
+	if blackboard.get("energy") > 0:
+		blackboard["energy"] -= 1
+
+func ai_process() -> void:
 	var _status = behaviour_algorithm.update()
 
 func emote(text: String) -> void:
