@@ -80,9 +80,15 @@ directional_shadow_split_1 = 0.234
 directional_shadow_split_2 = 0.238
 directional_shadow_max_distance = 20.0
 
-[node name="Character" parent="." instance=ExtResource( 1 )]
+[node name="Johnny" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -3.34424, 0.335912, 2.39345 )
+collision_layer = 2
 character_name = "Johnny"
+
+[node name="Danny" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 3.48287, 0.335912, 4.01909 )
+collision_layer = 2
+character_name = "Danny"
 
 [node name="Navigation" type="Navigation" parent="."]
 

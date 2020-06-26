@@ -21,6 +21,11 @@ func _init(o).(o):
 			SetVarAction.new(owner, "hunger", 1000),
 		]),
 		Sequence.new([
+			EmoteAction.new(owner, "*social*"),
+			NavigateAction.new(owner, "character"),
+			InteractAction.new(owner, "character", "*talking*"),
+		]),
+		Sequence.new([
 			EmoteAction.new(owner, "*tired*"),
 			NavigateAction.new(owner, "chair"),
 			EmoteAction.new(owner, "*sitting*"),
