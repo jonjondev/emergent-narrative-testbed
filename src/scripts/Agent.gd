@@ -4,7 +4,8 @@ var behaviour_algorithm: BehaviourTree = SimpleBehaviourTree.new(self)
 var blackboard = {}
 
 onready var navigation = NavigationManager.new(self)
-onready var emote_text: Spatial = $"3DText"
+onready var emote_text: Spatial = $EmoteText
+onready var perception: Area = $Perception
 onready var anim_state_machine: AnimationNodeStateMachinePlayback = $Model/AnimationTree["parameters/playback"]
 
 func _ready():

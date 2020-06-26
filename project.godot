@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/BT/Actions/GetVarAction.gd"
 }, {
+"base": "Decorator",
+"class": "InversionFilter",
+"language": "GDScript",
+"path": "res://src/scripts/BT/Filters/InversionFilter.gd"
+}, {
 "base": "Action",
 "class": "NavigateAction",
 "language": "GDScript",
@@ -97,7 +102,7 @@ _global_script_classes=[ {
 "base": "Decorator",
 "class": "RepeatFilter",
 "language": "GDScript",
-"path": "res://src/scripts/BT/RepeatFilter.gd"
+"path": "res://src/scripts/BT/Filters/RepeatFilter.gd"
 }, {
 "base": "Composite",
 "class": "Selector",
@@ -139,6 +144,7 @@ _global_script_class_icons={
 "Decorator": "",
 "EmoteAction": "",
 "GetVarAction": "",
+"InversionFilter": "",
 "NavigateAction": "",
 "NavigationManager": "",
 "NearCondition": "",

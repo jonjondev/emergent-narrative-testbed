@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Agent.tscn" type="PackedScene" id=1]
 
@@ -53,6 +53,15 @@ albedo_color = Color( 0.690196, 0.701961, 0.698039, 1 )
 
 [sub_resource type="SpatialMaterial" id=13]
 albedo_color = Color( 1, 0.494118, 0, 1 )
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 0.587588, 0.34669, 0.49303 )
+
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 1, 0.190944, 0.515143 )
+
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 0.514493, 0.355157, 0.492047 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -325,17 +334,27 @@ radial_segments = 20
 radius = 0.1
 radial_segments = 20
 
-[node name="Food" type="Spatial" parent="." groups=[
+[node name="Food" type="Area" parent="." groups=[
 "food",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201086, 0.928513, 2.94879 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0401129, 0.928513, 3.28886 )
 
-[node name="Bed" type="Spatial" parent="." groups=[
+[node name="CollisionShape" type="CollisionShape" parent="Food"]
+shape = SubResource( 14 )
+
+[node name="Bed" type="Area" parent="." groups=[
 "bed",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67687, 0.928513, -3.19391 )
 
-[node name="Chair" type="Spatial" parent="." groups=[
-"Chair",
+[node name="CollisionShape" type="CollisionShape" parent="Bed"]
+shape = SubResource( 15 )
+
+[node name="Chair" type="Area" parent="." groups=[
+"chair",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92274, 0.928513, 2.51123 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35869, 0.659265, 2.15657 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Chair"]
+transform = Transform( 0.832486, 0, 0.554046, 0, 1, 0, -0.554046, 0, 0.832486, 0, 0, 0 )
+shape = SubResource( 16 )
