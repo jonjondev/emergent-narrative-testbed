@@ -12,6 +12,6 @@ func on_initialise() -> void:
 	.on_initialise()
 
 func update() -> int:
-	if owner.is_near(target):
+	if owner.is_near(target.location):
 		return child.tick()
 	return Status.FAILURE

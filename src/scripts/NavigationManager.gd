@@ -21,7 +21,7 @@ func process_navigation(delta: float) -> void:
 			current_path.remove(0)
 		else:
 			move = move.normalized() * speed
-		owner.move_and_slide(move)
+		var _slide = owner.move_and_slide(move)
 	
 	var initial_transform: Transform = owner.get_transform()
 	var final_transform: Transform = Transform(initial_transform.basis, owner.translation + move)
@@ -42,11 +42,11 @@ func move_to_random_location() -> void:
 	var bounds: float = 4.0
 	navigate_to(Vector3(rand_range(-bounds, bounds), 0, rand_range(-bounds, bounds)))
 
-func is_near(target) -> bool:
-	return target and distance_to(target) < 0.2
+func is_near(target: Vector3) -> bool:
+	return target and distance_to(target) < 1.0
 
-func distance_to(target) -> float:
-	return owner.translation.distance_to(target.translation)
+func distance_to(target: Vector3) -> float:
+	return owner.translation.distance_to(target)
 
 func is_navigating() -> bool:
-	return current_path.size() > 0
+	return not current_path.empty()
