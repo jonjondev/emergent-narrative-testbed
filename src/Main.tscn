@@ -82,6 +82,7 @@ directional_shadow_max_distance = 20.0
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -3.34424, 0.335912, 2.39345 )
+character_name = "Johnny"
 
 [node name="Navigation" type="Navigation" parent="."]
 

@@ -1,12 +1,14 @@
 extends KinematicBody
 
+export (String) var character_name
+
 var behaviour_algorithm: BehaviourTree = SimpleBehaviourTree.new(self)
 var blackboard = {
 	"hunger": 1000,
 	"energy": 1000,
 }
 
-onready var navigation = NavigationManager.new(self)
+onready var navigation = NavigationManager.new(self, $"../Navigation")
 onready var emote_text: Spatial = $EmoteText
 onready var perception: Area = $Perception
 onready var anim_state_machine: AnimationNodeStateMachinePlayback = $Model/AnimationTree["parameters/playback"]
@@ -28,4 +30,4 @@ func ai_process() -> void:
 	var _status = behaviour_algorithm.update()
 
 func emote(text: String) -> void:
-	emote_text.text = text
+	emote_text.text = text + "\n" + character_name

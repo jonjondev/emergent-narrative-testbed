@@ -8,9 +8,9 @@ var velocity: Vector3 = Vector3.ZERO
 var current_path: PoolVector3Array
 var navigation: Navigation
 
-func _init(o: KinematicBody) -> void:
+func _init(o: KinematicBody, nav: Navigation) -> void:
 	owner = o
-	navigation = owner.get_node("../Navigation")
+	navigation = nav
 
 func process_navigation(delta: float) -> void:
 	var move: Vector3 = Vector3.ZERO
