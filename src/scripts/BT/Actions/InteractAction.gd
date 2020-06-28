@@ -2,20 +2,17 @@ class_name InteractAction
 extends Action
 
 var target
-var group_name
-var interact_method
 var is_complete
+var group_name
 
-func _init(o, group, method).(o):
-	interact_method = method
+func _init(o, group = null).(o):
 	group_name = group
 
 func on_initialise() -> void:
-	target = owner.blackboard["interaction_partner"]
-	owner.emote(interact_method)
-	owner.get_tree().create_timer(3.0).connect("timeout", self, "complete")
-	if owner.translation.distance_to(target.translation) < 1.0:
-		owner.navigation.navigate_to(target.translation + Vector3(2.0, 0, 0))
+	target = owner.blackboard.get(group_name) if group_name else owner.blackboard.get("interaction_partner")
+	var interaction_data = target.interact(owner)
+	owner.emote(interaction_data.name)
+	owner.get_tree().create_timer(interaction_data.length).connect("timeout", self, "complete")
 	.on_initialise()
 
 func update() -> int:
@@ -23,7 +20,6 @@ func update() -> int:
 		return Status.SUCCESS
 	elif not target:
 		return Status.FAILURE
-	owner.navigation.face_target(target.translation)
 	return Status.RUNNING
 
 func on_terminate(status) -> void:

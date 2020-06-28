@@ -134,6 +134,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/BT/BehaviourTrees/SimpleBehaviourTree.gd"
 }, {
+"base": "Node",
+"class": "SmartObject",
+"language": "GDScript",
+"path": "res://src/scripts/SmartObjects/SmartObject.gd"
+}, {
 "base": "Condition",
 "class": "VisibleCondition",
 "language": "GDScript",
@@ -170,6 +175,7 @@ _global_script_class_icons={
 "Sequence": "",
 "SetVarAction": "",
 "SimpleBehaviourTree": "",
+"SmartObject": "",
 "VisibleCondition": "",
 "VisiblePrecondition": ""
 }

@@ -7,7 +7,6 @@ var blackboard = {
 	"hunger": 1000,
 	"energy": 1000,
 }
-var is_advertising: bool = false
 
 onready var navigation = NavigationManager.new(self, $"../Navigation")
 onready var emote_text: Spatial = $EmoteText
