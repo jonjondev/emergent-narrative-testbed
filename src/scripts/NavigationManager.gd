@@ -8,6 +8,8 @@ var velocity: Vector3 = Vector3.ZERO
 var current_path: PoolVector3Array
 var navigation: Navigation
 
+var facing_target
+
 func _init(o: KinematicBody, nav: Navigation) -> void:
 	owner = o
 	navigation = nav
@@ -23,17 +25,25 @@ func process_navigation(delta: float) -> void:
 			move = move.normalized() * speed
 		var _slide = owner.move_and_slide(move)
 	
+	rotate_to(delta, owner.translation + move)
+	
+	if facing_target:
+		rotate_to(delta, facing_target)
+		if (owner.transform.basis.get_euler() - owner.transform.looking_at(facing_target, Vector3.UP).basis.get_euler()).length() < 0.1:
+			facing_target = null
+	
+	owner.anim_state_machine.travel("idle" if move == Vector3.ZERO else "walk")
+	
+	velocity += gravity * delta
+	velocity = owner.move_and_slide(velocity)
+
+func rotate_to(delta, looking_at: Vector3):
 	var initial_transform: Transform = owner.get_transform()
-	var final_transform: Transform = Transform(initial_transform.basis, owner.translation + move)
+	var final_transform: Transform = Transform(initial_transform.basis, looking_at)
 	if initial_transform != final_transform:
 		var rotated_transform: Transform = initial_transform.looking_at(final_transform.origin, Vector3.UP)
 		var rotated_quat: Quat = Quat(initial_transform.basis).slerp(rotated_transform.basis, delta*5)
 		owner.set_transform(Transform(rotated_quat, initial_transform.origin))
-	
-	owner.anim_state_machine.travel("idle" if move == Vector3.ZERO else "walk")
-	
-	velocity += gravity * delta 
-	velocity = owner.move_and_slide(velocity)
 
 func navigate_to(target_location: Vector3) -> void:
 	current_path = navigation.get_simple_path(owner.global_transform.origin, target_location)
@@ -42,11 +52,14 @@ func move_to_random_location() -> void:
 	var bounds: float = 4.0
 	navigate_to(Vector3(rand_range(-bounds, bounds), 0, rand_range(-bounds, bounds)))
 
-func is_near(target: Vector3) -> bool:
-	return target and distance_to(target) < 1.0
+func is_near(target: Vector3, distance: float = 1.0) -> bool:
+	return target and distance_to(target) < distance
 
 func distance_to(target: Vector3) -> float:
 	return owner.translation.distance_to(target)
 
 func is_navigating() -> bool:
 	return not current_path.empty()
+
+func face_target(target: Vector3):
+	facing_target = target

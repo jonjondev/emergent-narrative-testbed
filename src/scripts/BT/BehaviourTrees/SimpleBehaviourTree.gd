@@ -22,7 +22,8 @@ func _init(o).(o):
 		]),
 		Sequence.new([
 			EmoteAction.new(owner, "*social*"),
-			NavigateAction.new(owner, "character"),
+			NavigateAction.new(owner, "character", 3.0),
+			AdvertiseInteractAction.new(owner, "character", "*talking*"),
 			InteractAction.new(owner, "character", "*talking*"),
 		]),
 		Sequence.new([

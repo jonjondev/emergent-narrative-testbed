@@ -3,13 +3,15 @@ extends Action
 
 var group_name
 var target
+var offset_distance
 
-func _init(o, group).(o):
+func _init(o, group, offset = 1.0).(o):
 	group_name = group
+	offset_distance = offset
 
 func on_initialise() -> void:
 	target = owner.blackboard.get(group_name)
-	if target and not owner.navigation.is_near(target.translation):
+	if target and not owner.navigation.is_near(target.translation, offset_distance):
 		owner.navigation.navigate_to(target.translation)
 	.on_initialise()
 

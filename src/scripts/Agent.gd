@@ -7,7 +7,7 @@ var blackboard = {
 	"hunger": 1000,
 	"energy": 1000,
 }
-var in_interaction: bool = false
+var is_advertising: bool = false
 
 onready var navigation = NavigationManager.new(self, $"../Navigation")
 onready var emote_text: Spatial = $EmoteText
@@ -32,11 +32,3 @@ func ai_process() -> void:
 
 func emote(text: String) -> void:
 	emote_text.text = text + "\n" + character_name
-
-func initiate_interaction(interact_method):
-	navigation.current_path.resize(0)
-	$AITime.stop()
-	emote(interact_method)
-
-func end_interaction():
-	$AITime.start()
