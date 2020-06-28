@@ -11,12 +11,11 @@ func _init(o, group, method).(o):
 	group_name = group
 
 func on_initialise() -> void:
-	for potential_target in owner.get_tree().get_nodes_in_group(group_name):
-		if potential_target != owner:
-			target = potential_target
+	target = owner.blackboard["interaction_partner"]
 	owner.emote(interact_method)
-	target.get_node("..").initiate_interaction(interact_method)
 	owner.get_tree().create_timer(3.0).connect("timeout", self, "complete")
+	if owner.translation.distance_to(target.translation) < 1.0:
+		owner.navigation.navigate_to(target.translation + Vector3(2.0, 0, 0))
 	.on_initialise()
 
 func update() -> int:
@@ -24,12 +23,13 @@ func update() -> int:
 		return Status.SUCCESS
 	elif not target:
 		return Status.FAILURE
+	owner.navigation.face_target(target.translation)
 	return Status.RUNNING
 
 func on_terminate(status) -> void:
+	owner.blackboard["interaction_partner"] = null
 	is_complete = false
 	.on_terminate(status)
 
 func complete() -> void:
-	target.get_node("..").end_interaction()
 	is_complete = true
