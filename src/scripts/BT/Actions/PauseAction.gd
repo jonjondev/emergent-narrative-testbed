@@ -21,4 +21,5 @@ func on_terminate(status) -> void:
 	.on_terminate(status)
 
 func complete() -> void:
-	is_complete = true
+	if current_status == Status.RUNNING:
+		is_complete = true

@@ -20,8 +20,8 @@ func _init(o).(o):
 		]),
 		Sequence.new([
 			EmoteAction.new(owner, "*social*"),
-			NavigateAction.new(owner, "character", 3.0),
-			AdvertiseInteractAction.new(owner, "character"),
+			NavigateAction.new(owner, "character"),
+			AdvertiseInteractAction.new(owner),
 			InteractAction.new(owner, "character"),
 		]),
 		Sequence.new([

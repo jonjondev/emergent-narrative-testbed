@@ -5,9 +5,6 @@ func _init().():
 	action_length = 2.0
 
 func interact(partner) -> Dictionary:
-	partner.blackboard["energy"] += 500
-	return {
-		"name": action_name,
-		"length": action_length,
-	}
+	partner.blackboard["energy"] += 1000
+	return .interact(partner)
 

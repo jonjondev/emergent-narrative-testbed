@@ -4,8 +4,8 @@ export (String) var character_name
 
 var behaviour_algorithm: BehaviourTree = SimpleBehaviourTree.new(self)
 var blackboard = {
-	"hunger": 1000,
-	"energy": 1000,
+	"hunger": 1500,
+	"energy": 1500,
 }
 
 onready var navigation = NavigationManager.new(self, $"../Navigation")
