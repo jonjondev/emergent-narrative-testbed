@@ -9,24 +9,30 @@ func _init(o).(o):
 			EmoteAction.new(owner, "*sleepy*"),
 			NavigateAction.new(owner, "bed"),
 			InteractAction.new(owner, "bed"),
-			EmoteAction.new(owner, "*sleeping*"),
 		]),
 		Sequence.new([
 			GetVarAction.new(owner, "hunger", 0),
 			EmoteAction.new(owner, "*hungry*"),
 			NavigateAction.new(owner, "food"),
 			InteractAction.new(owner, "food"),
-			EmoteAction.new(owner, "*eating*"),
 		]),
 		Sequence.new([
 			EmoteAction.new(owner, "*social*"),
-			NavigateAction.new(owner, "character"),
+			NavigateAction.new(owner, "character", 2.0),
 			AdvertiseInteractAction.new(owner),
 			InteractAction.new(owner, "character"),
 		]),
-		Sequence.new([
-			EmoteAction.new(owner, "*tired*"),
-			NavigateAction.new(owner, "chair"),
-			EmoteAction.new(owner, "*sitting*"),
+		ActiveSelector.new([
+			Sequence.new([
+				AdvertisingPartnerCondition.new(owner),
+				NavigateAction.new(owner, "character", 2.0),
+				AdvertiseInteractAction.new(owner),
+				InteractAction.new(owner, "character"),
+			]),
+			Sequence.new([
+				EmoteAction.new(owner, "*bored*"),
+				NavigateAction.new(owner, "chair"),
+				InteractAction.new(owner, "chair"),
+			]),
 		]),
 	])
