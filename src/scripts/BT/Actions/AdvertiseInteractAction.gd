@@ -26,4 +26,5 @@ func on_terminate(status) -> void:
 
 func fail() -> void:
 	if current_status == Status.RUNNING:
+		owner.blackboard["advertising_state"] = false
 		has_failed = true
