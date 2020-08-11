@@ -11,5 +11,8 @@ func interact(_partner) -> Dictionary:
 		"length": action_length,
 	}
 
+func tick_interaction(_partner) -> void:
+	pass
+
 func end_interaction() -> void:
 	pass

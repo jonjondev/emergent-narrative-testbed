@@ -21,6 +21,7 @@ func update() -> int:
 		return Status.SUCCESS
 	elif not target:
 		return Status.FAILURE
+	target.tick_interaction(owner)
 	return Status.RUNNING
 
 func on_terminate(status) -> void:
