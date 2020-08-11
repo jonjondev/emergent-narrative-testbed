@@ -37,7 +37,7 @@ func process_navigation(delta: float) -> void:
 	velocity += gravity * delta
 	velocity = owner.move_and_slide(velocity)
 
-func rotate_to(delta, looking_at: Vector3):
+func rotate_to(delta, looking_at: Vector3) -> void:
 	var initial_transform: Transform = owner.get_transform()
 	var final_transform: Transform = Transform(initial_transform.basis, looking_at)
 	if initial_transform != final_transform:
@@ -61,5 +61,9 @@ func distance_to(target: Vector3) -> float:
 func is_navigating() -> bool:
 	return not current_path.empty()
 
-func face_target(target: Vector3):
+func face_target(target: Vector3) -> void:
 	facing_target = target
+
+func get_final_destination() -> Vector3:
+	var last_idx: int = current_path.size() - 1
+	return current_path[last_idx] if last_idx >= 0 else owner.translation

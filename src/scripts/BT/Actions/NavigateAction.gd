@@ -3,13 +3,15 @@ extends Action
 
 var group_name
 var target
+var min_distance
 
-func _init(o, group).(o):
+func _init(o, group, distance = 1.0).(o):
 	group_name = group
+	min_distance = distance
 
 func on_initialise() -> void:
 	target = owner.blackboard.get(group_name)
-	if target and not owner.navigation.is_near(target.self_value.translation):
+	if target and not owner.navigation.is_near(target.self_value.translation, min_distance):
 		owner.navigation.navigate_to(target.self_value.translation)
 	.on_initialise()
 
