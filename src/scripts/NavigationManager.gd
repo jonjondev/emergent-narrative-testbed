@@ -67,3 +67,13 @@ func face_target(target: Vector3) -> void:
 func get_final_destination() -> Vector3:
 	var last_idx: int = current_path.size() - 1
 	return current_path[last_idx] if last_idx >= 0 else owner.translation
+
+func get_closest(potential_targets: Array) -> SmartObject:
+	var closest_target: SmartObject
+	var closest_distance: float
+	for target in potential_targets:
+		var distance: float = distance_to(target.translation)
+		if not closest_target or distance < closest_distance:
+			closest_target = target
+			closest_distance = distance
+	return closest_target

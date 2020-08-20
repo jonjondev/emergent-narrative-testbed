@@ -16,8 +16,10 @@ func update() -> int:
 	if has_failed:
 		return Status.FAILURE
 	else:
-		if owner.blackboard.get("character").self_value.blackboard.get("advertising_state"):
-			return Status.SUCCESS
+		for character in owner.perception.get_overlapping_areas():
+			if character.is_in_group("character") and character.self_value.blackboard.get("advertising_state"):
+				owner.blackboard["advertising_partner"] = character
+				return Status.SUCCESS
 	return Status.RUNNING
 
 func on_terminate(status) -> void:

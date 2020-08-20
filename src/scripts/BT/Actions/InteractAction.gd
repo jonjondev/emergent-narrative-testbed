@@ -9,7 +9,13 @@ func _init(o, group = null).(o):
 	group_name = group
 
 func on_initialise() -> void:
-	target = owner.blackboard.get(group_name)
+	var partner = owner.blackboard.get("advertising_partner")
+	if partner:
+		target = partner
+	else:
+		var potential_targets: Array = owner.blackboard.get(group_name)
+		if potential_targets:
+			target = owner.navigation.get_closest(potential_targets)
 	var interaction_data = target.interact(owner)
 	owner.emote(interaction_data.name)
 	owner.get_tree().create_timer(interaction_data.length).connect("timeout", self, "complete")

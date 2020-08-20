@@ -18,12 +18,13 @@ func _ready():
 
 func interact(partner) -> Dictionary:
 	if partner.navigation.distance_to(self_value.navigation.get_final_destination()) < .5:
-		partner.navigation.navigate_to(self_value.translation + interaction_points[randi() % 6])
+		partner.navigation.navigate_to(self_value.translation + (interaction_points[randi() % 6] / 2))
 	return .interact(partner)
 
 func tick_interaction(partner) -> void:
-	partner.navigation.face_target(self_value.translation)
+	#partner.navigation.face_target(self_value.translation)
 	.tick_interaction(partner)
 
 func end_interaction() -> void:
 	owner.blackboard["advertising_state"] = false
+	owner.blackboard["advertising_partner"] = null
