@@ -2,11 +2,12 @@ extends KinematicBody
 
 export (String) var character_name
 
-var behaviour_algorithm: BehaviourTree = SimpleBehaviourTree.new(self)
 var blackboard = {
-	"hunger": 1500,
-	"energy": 1500,
+	"hunger": 500,
+	"energy": 0,
 }
+
+var behaviour_algorithm: StateMachine = GoapStateMachine.new(self)
 
 onready var navigation = NavigationManager.new(self, $"../Navigation")
 onready var emote_text: Spatial = $EmoteText
@@ -16,6 +17,7 @@ onready var anim_state_machine: AnimationNodeStateMachinePlayback = $Model/Anima
 func _ready():
 	var _err = $AITime.connect("timeout", self , "ai_process")
 	_err = perception.connect("area_entered", self, "percieve")
+	behaviour_algorithm.on_enter()
 
 func _physics_process(delta) -> void:
 	navigation.process_navigation(delta)
@@ -28,7 +30,7 @@ func process_needs() -> void:
 		blackboard["energy"] -= 1
 
 func ai_process() -> void:
-	var _status = behaviour_algorithm.update()
+	behaviour_algorithm.on_update()
 
 func emote(text: String) -> void:
 	emote_text.text = text + "\n" + character_name

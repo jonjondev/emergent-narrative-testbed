@@ -10,3 +10,6 @@ func _init(o):
 
 func perform() -> bool:
 	return false
+
+func setup() -> void:
+	pass

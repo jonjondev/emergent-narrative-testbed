@@ -5,10 +5,13 @@ func _init(owner).(owner):
 	pass
 
 func on_enter():
-	owner.navigation.target = owner.blackboard.target
+	if owner.blackboard.target is Vector3:
+		owner.navigation.navigate_to(owner.blackboard.target)
+	else:
+		owner.navigation.navigate_to(owner.blackboard.target.translation)
 
 func on_update():
 	pass
 
 func on_exit():
-	owner.navigation.target = null
+	pass

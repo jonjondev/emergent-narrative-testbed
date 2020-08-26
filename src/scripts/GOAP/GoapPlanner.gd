@@ -25,7 +25,7 @@ func generate_valid_paths(current_state):
 				else:
 					potential_state_paths.append([action_state, new_actions])
 
-func conditions_valid(state, conditions):
+static func conditions_valid(state, conditions):
 	for condition in conditions.keys():
 		if state[condition] != conditions[condition]:
 			return false

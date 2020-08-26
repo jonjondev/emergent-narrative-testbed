@@ -48,9 +48,16 @@ func rotate_to(delta, looking_at: Vector3) -> void:
 func navigate_to(target_location: Vector3) -> void:
 	current_path = navigation.get_simple_path(owner.global_transform.origin, target_location)
 
+func stop_navigation():
+	while not current_path.empty():
+		current_path.remove(0)
+
 func move_to_random_location() -> void:
+	navigate_to(generate_random_location())
+
+func generate_random_location() -> Vector3:
 	var bounds: float = 4.0
-	navigate_to(Vector3(rand_range(-bounds, bounds), 0, rand_range(-bounds, bounds)))
+	return Vector3(rand_range(-bounds, bounds), 0, rand_range(-bounds, bounds))
 
 func is_near(target: Vector3, distance: float = 1.0) -> bool:
 	return target and distance_to(target) < distance

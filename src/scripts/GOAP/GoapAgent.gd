@@ -1,12 +1,14 @@
 class_name GoapAgent
 
 var goal_state = {
-	GoapStates.StateConditions.ENEMY_ALIVE: false,
+	GoapStates.StateConditions.IS_HUNGRY: false,
+	GoapStates.StateConditions.IS_SLEEPY: false,
 }
 
 var actions = [
-	AttackEnemyGoapAction,
-	PickupSwordGoapAction,
+	EatGoapAction,
+	SleepGoapAction,
+	SearchGoapAction,
 ]
 
 func _init(owner):

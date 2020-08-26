@@ -8,6 +8,7 @@ var states = GoapStates
 func _init(owner).(owner):
 	agent_profile = agent_profile.new(owner)
 	states = states.new(owner)
+	owner.blackboard["agent_states"] = states
 	owner.blackboard.plan = []
 
 func on_enter():
