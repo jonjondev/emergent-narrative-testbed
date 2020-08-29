@@ -1,6 +1,7 @@
 class_name EatGoapAction
 extends GoapAction
 
+var is_initialised = false
 var is_complete = false
 
 func _init(o).(o):
@@ -15,13 +16,18 @@ func setup() -> void:
 	target = owner.blackboard.get("food")[0]
 
 func perform():
-	print("performing")
-	if owner.navigation.is_near(target.translation, 2.0):
-		print("nearby")
-		var interaction_data = target.interact(owner)
-		owner.emote(interaction_data.name)
-		#owner.get_tree().create_timer(interaction_data.length).connect("timeout", self, "complete")
-		return true
+	owner.emote("*hungry*")
+	if owner.navigation.is_near(target.translation, 1.5):
+		if not is_initialised:
+			var interaction_data = target.interact(owner)
+			owner.emote(interaction_data.name)
+			owner.get_tree().create_timer(interaction_data.length).connect("timeout", self, "complete")
+			is_initialised = true
+		elif is_complete:
+			owner.emote("")
+			is_initialised = false
+			is_complete = false
+			return true
 	return false
 
 func complete() -> void:
