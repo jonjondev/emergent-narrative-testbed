@@ -7,7 +7,7 @@ var blackboard = {
 	"energy": 0,
 }
 
-var behaviour_algorithm: StateMachine = GoapStateMachine.new(self)
+var behaviour_algorithm: GoapStateMachine = GoapStateMachine.new(self, GoapAgent)
 
 onready var navigation = NavigationManager.new(self, $"../Navigation")
 onready var emote_text: Spatial = $EmoteText
@@ -17,7 +17,6 @@ onready var anim_state_machine: AnimationNodeStateMachinePlayback = $Model/Anima
 func _ready():
 	var _err = $AITime.connect("timeout", self , "ai_process")
 	_err = perception.connect("area_entered", self, "percieve")
-	behaviour_algorithm.on_enter()
 
 func _physics_process(delta) -> void:
 	navigation.process_navigation(delta)
