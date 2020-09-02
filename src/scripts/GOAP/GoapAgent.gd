@@ -3,7 +3,7 @@ class_name GoapAgent
 var goal_state = {
 	GoapStates.StateConditions.IS_HUNGRY: false,
 	GoapStates.StateConditions.IS_SLEEPY: false,
-	#GoapStates.StateConditions.IS_BORED: false,
+	GoapStates.StateConditions.IS_BORED: false,
 }
 
 var actions = [

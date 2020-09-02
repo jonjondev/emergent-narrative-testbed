@@ -21,7 +21,7 @@ func generate_current_state():
 	var current_state = blank_state.duplicate()
 	current_state[StateConditions.IS_HUNGRY] = owner.blackboard.get("hunger") <= 0
 	current_state[StateConditions.IS_SLEEPY] = owner.blackboard.get("energy") <= 0
-	current_state[StateConditions.IS_BORED] = not (current_state[StateConditions.IS_SLEEPY] and current_state[StateConditions.IS_HUNGRY])
+	current_state[StateConditions.IS_BORED] = not current_state[StateConditions.IS_SLEEPY] and not current_state[StateConditions.IS_HUNGRY]
 	current_state[StateConditions.KNOWS_FOOD] = check_memory("food")
 	current_state[StateConditions.KNOWS_BED] = check_memory("bed")
 	current_state[StateConditions.KNOWS_CHAIR] = check_memory("chair")
