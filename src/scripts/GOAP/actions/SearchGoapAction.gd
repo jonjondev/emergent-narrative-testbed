@@ -11,9 +11,9 @@ func _init(o).(o):
 
 func setup() -> void:
 	target = owner.navigation.generate_random_location()
+	owner.emote("*seaching*")
 
 func perform() -> bool:
-	owner.emote("*seaching*")
 	if target and owner.navigation.is_near(target):
 		owner.emote("")
 		return true
