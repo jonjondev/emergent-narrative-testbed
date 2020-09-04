@@ -1,4 +1,4 @@
-class_name SleepGoapAction
+class_name PickupTreasureGoapAction
 extends GoapAction
 
 var is_initialised = false
@@ -6,17 +6,17 @@ var is_complete = false
 
 func _init(o).(o):
 	preconditions = {
-		HomeStates.StateConditions.KNOWS_BED: true,
+		ForestStates.StateConditions.KNOWS_TREASURE: true,
 	}
 	effects = {
-		HomeStates.StateConditions.IS_SLEEPY: false,
+		ForestStates.StateConditions.HAS_TREASURE: true,
 	}
 
 func setup() -> void:
-	target = owner.blackboard.get("bed")[0]
-	owner.emote("*sleepy*")
+	target = owner.blackboard.get("treasure")[0]
+	owner.emote("*plundering*")
 
-func perform() -> bool:
+func perform():
 	if not is_initialised and owner.navigation.is_near(target.translation, 1.5):
 		var interaction_data = target.interact(owner)
 		owner.emote(interaction_data.name)

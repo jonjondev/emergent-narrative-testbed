@@ -4,9 +4,10 @@ extends GoapAction
 func _init(o).(o):
 	preconditions = {}
 	effects = {
-		GoapStates.StateConditions.KNOWS_FOOD: true,
-		GoapStates.StateConditions.KNOWS_BED: true,
-		GoapStates.StateConditions.KNOWS_CHAIR: true,
+		#HomeStates.StateConditions.KNOWS_FOOD: true,
+		#HomeStates.StateConditions.KNOWS_BED: true,
+		#HomeStates.StateConditions.KNOWS_CHAIR: true,
+		ForestStates.StateConditions.KNOWS_TREASURE: true,
 	}
 
 func setup() -> void:

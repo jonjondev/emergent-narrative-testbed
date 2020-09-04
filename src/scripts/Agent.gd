@@ -1,13 +1,14 @@
 extends KinematicBody
 
 export (String) var character_name
+export (GDScript) var agent_profile
 
 var blackboard = {
 	"hunger": 500,
 	"energy": 0,
 }
 
-var behaviour_algorithm: GoapStateMachine = GoapStateMachine.new(self, GoapAgent)
+var behaviour_algorithm: GoapStateMachine
 
 onready var navigation = NavigationManager.new(self, $"../Navigation")
 onready var emote_text: Spatial = $EmoteText
@@ -15,6 +16,7 @@ onready var perception: Area = $Perception
 onready var anim_state_machine: AnimationNodeStateMachinePlayback = $Model/AnimationTree["parameters/playback"]
 
 func _ready():
+	behaviour_algorithm = GoapStateMachine.new(self, agent_profile)
 	var _err = $AITime.connect("timeout", self , "ai_process")
 	_err = perception.connect("area_entered", self, "percieve")
 

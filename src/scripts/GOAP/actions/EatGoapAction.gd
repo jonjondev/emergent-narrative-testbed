@@ -6,10 +6,10 @@ var is_complete = false
 
 func _init(o).(o):
 	preconditions = {
-		GoapStates.StateConditions.KNOWS_FOOD: true,
+		HomeStates.StateConditions.KNOWS_FOOD: true,
 	}
 	effects = {
-		GoapStates.StateConditions.IS_HUNGRY: false,
+		HomeStates.StateConditions.IS_HUNGRY: false,
 	}
 
 func setup() -> void:

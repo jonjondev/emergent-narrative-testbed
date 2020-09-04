@@ -9,7 +9,6 @@ var current_state: int = State.PLANNING
 # Planning fields
 var planner: GoapPlanner = GoapPlanner.new()
 var agent_profile: GoapAgent
-var states: GoapStates
 var current_plan: Array = []
 
 # Action fields
@@ -23,7 +22,6 @@ var target = null
 func _init(o, profile):
 	owner = o
 	agent_profile = profile.new(owner)
-	states = GoapStates.new(owner)
 
 func on_update():
 	match(current_state):
@@ -57,7 +55,7 @@ func on_update():
 				on_action_update()
 
 func on_planning_update():
-	var new_plan = planner.generate_plan(states.generate_current_state(), agent_profile)
+	var new_plan = planner.generate_plan(agent_profile.generate_current_state(), agent_profile)
 	if new_plan and current_plan.hash() != new_plan.hash():
 		current_plan = new_plan
 
@@ -65,7 +63,7 @@ func on_action_enter():
 	current_action = current_plan.front() if current_plan else null
 
 func on_action_update():
-	if current_action && GoapPlanner.conditions_valid(states.generate_current_state(), current_action.preconditions):
+	if current_action && GoapPlanner.conditions_valid(agent_profile.generate_current_state(), current_action.preconditions):
 		if not action_setup:
 			current_action.setup()
 			target = current_action.target

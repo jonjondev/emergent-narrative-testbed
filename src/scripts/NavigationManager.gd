@@ -56,8 +56,8 @@ func move_to_random_location() -> void:
 	navigate_to(generate_random_location())
 
 func generate_random_location() -> Vector3:
-	var bounds: float = 4.0
-	return Vector3(rand_range(-bounds, bounds), 0, rand_range(-bounds, bounds))
+	var bounds: float = 9.0
+	return navigation.get_closest_point(Vector3(rand_range(-bounds, bounds), 0, rand_range(-bounds, bounds)))
 
 func is_near(target: Vector3, distance: float = 1.0) -> bool:
 	return target and distance_to(target) < distance
