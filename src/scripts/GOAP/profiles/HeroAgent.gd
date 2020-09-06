@@ -6,10 +6,10 @@ func _init(owner):
 		ForestStates.StateConditions.HAS_TREASURE: true,
 	}
 	actions = [
-		TakeQuestGoapAction,
-		PerformQuestGoapAction,
-		PickupTreasureGoapAction,
-		SearchGoapAction,
+		TakeQuestAction,
+		PerformQuestAction,
+		PickupTreasureAction,
+		SearchAction,
 	]
 	.setup(owner, ForestStates.StateConditions.size())
 

@@ -694,7 +694,6 @@ transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 7.92044, 0.
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Treasure"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 16 )
 
 [node name="Questgiver" type="Area" parent="." groups=[

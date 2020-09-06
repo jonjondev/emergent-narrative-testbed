@@ -1,4 +1,4 @@
-class_name EatGoapAction
+class_name PickupTreasureAction
 extends GoapAction
 
 var is_initialised = false
@@ -6,15 +6,15 @@ var is_complete = false
 
 func _init(o).(o):
 	preconditions = {
-		HomeStates.StateConditions.KNOWS_FOOD: true,
+		ForestStates.StateConditions.KNOWS_TREASURE: true,
 	}
 	effects = {
-		HomeStates.StateConditions.IS_HUNGRY: false,
+		ForestStates.StateConditions.HAS_TREASURE: true,
 	}
 
 func setup() -> void:
-	target = owner.blackboard.get("food")[0]
-	owner.emote("*hungry*")
+	target = owner.blackboard.get("treasure")[0]
+	owner.emote("*plundering*")
 
 func perform():
 	if not is_initialised and owner.navigation.is_near(target.translation, 1.5):

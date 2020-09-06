@@ -1,4 +1,4 @@
-class_name PickupTreasureGoapAction
+class_name TakeQuestAction
 extends GoapAction
 
 var is_initialised = false
@@ -6,15 +6,15 @@ var is_complete = false
 
 func _init(o).(o):
 	preconditions = {
-		ForestStates.StateConditions.KNOWS_TREASURE: true,
+		ForestStates.StateConditions.KNOWS_QUESTGIVER: true,
 	}
 	effects = {
-		ForestStates.StateConditions.HAS_TREASURE: true,
+		ForestStates.StateConditions.HAS_QUEST: true,
 	}
 
 func setup() -> void:
-	target = owner.blackboard.get("treasure")[0]
-	owner.emote("*plundering*")
+	target = owner.blackboard.get("questgiver")[0]
+	owner.emote("*quest-finding*")
 
 func perform():
 	if not is_initialised and owner.navigation.is_near(target.translation, 1.5):

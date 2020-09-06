@@ -1,4 +1,4 @@
-class_name PerformQuestGoapAction
+class_name PerformQuestAction
 extends GoapAction
 
 func _init(o).(o):

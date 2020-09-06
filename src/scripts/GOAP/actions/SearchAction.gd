@@ -1,4 +1,4 @@
-class_name SearchGoapAction
+class_name SearchAction
 extends GoapAction
 
 func _init(o).(o):

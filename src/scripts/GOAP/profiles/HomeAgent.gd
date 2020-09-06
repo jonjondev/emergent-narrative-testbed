@@ -8,10 +8,10 @@ func _init(owner):
 		HomeStates.StateConditions.IS_BORED: false,
 	}
 	actions = [
-		EatGoapAction,
-		SleepGoapAction,
-		SearchGoapAction,
-		RestGoapAction,
+		EatAction,
+		SleepAction,
+		SearchAction,
+		RestAction,
 	]
 	.setup(owner, HomeStates.StateConditions.size())
 

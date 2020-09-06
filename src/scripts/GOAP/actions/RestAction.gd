@@ -1,4 +1,4 @@
-class_name TakeQuestGoapAction
+class_name RestAction
 extends GoapAction
 
 var is_initialised = false
@@ -6,15 +6,15 @@ var is_complete = false
 
 func _init(o).(o):
 	preconditions = {
-		ForestStates.StateConditions.KNOWS_QUESTGIVER: true,
+		HomeStates.StateConditions.KNOWS_CHAIR: true,
 	}
 	effects = {
-		ForestStates.StateConditions.HAS_QUEST: true,
+		HomeStates.StateConditions.IS_BORED: false,
 	}
 
 func setup() -> void:
-	target = owner.blackboard.get("questgiver")[0]
-	owner.emote("*quest-finding*")
+	target = owner.blackboard.get("chair")[0]
+	owner.emote("*bored*")
 
 func perform():
 	if not is_initialised and owner.navigation.is_near(target.translation, 1.5):

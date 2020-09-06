@@ -1,4 +1,4 @@
-class_name RestGoapAction
+class_name SleepAction
 extends GoapAction
 
 var is_initialised = false
@@ -6,17 +6,17 @@ var is_complete = false
 
 func _init(o).(o):
 	preconditions = {
-		HomeStates.StateConditions.KNOWS_CHAIR: true,
+		HomeStates.StateConditions.KNOWS_BED: true,
 	}
 	effects = {
-		HomeStates.StateConditions.IS_BORED: false,
+		HomeStates.StateConditions.IS_SLEEPY: false,
 	}
 
 func setup() -> void:
-	target = owner.blackboard.get("chair")[0]
-	owner.emote("*bored*")
+	target = owner.blackboard.get("bed")[0]
+	owner.emote("*sleepy*")
 
-func perform():
+func perform() -> bool:
 	if not is_initialised and owner.navigation.is_near(target.translation, 1.5):
 		var interaction_data = target.interact(owner)
 		owner.emote(interaction_data.name)

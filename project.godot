@@ -10,9 +10,9 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "GoapAction",
-"class": "EatGoapAction",
+"class": "EatAction",
 "language": "GDScript",
-"path": "res://src/scripts/GOAP/actions/EatGoapAction.gd"
+"path": "res://src/scripts/GOAP/actions/EatAction.gd"
 }, {
 "base": "Reference",
 "class": "ForestStates",
@@ -60,29 +60,29 @@ _global_script_classes=[ {
 "path": "res://src/scripts/NavigationManager.gd"
 }, {
 "base": "GoapAction",
-"class": "PerformQuestGoapAction",
+"class": "PerformQuestAction",
 "language": "GDScript",
-"path": "res://src/scripts/GOAP/actions/PerformQuestGoapAction.gd"
+"path": "res://src/scripts/GOAP/actions/PerformQuestAction.gd"
 }, {
 "base": "GoapAction",
-"class": "PickupTreasureGoapAction",
+"class": "PickupTreasureAction",
 "language": "GDScript",
-"path": "res://src/scripts/GOAP/actions/PickupTreasureGoapAction.gd"
+"path": "res://src/scripts/GOAP/actions/PickupTreasureAction.gd"
 }, {
 "base": "GoapAction",
-"class": "RestGoapAction",
+"class": "RestAction",
 "language": "GDScript",
-"path": "res://src/scripts/GOAP/actions/RestGoapAction.gd"
+"path": "res://src/scripts/GOAP/actions/RestAction.gd"
 }, {
 "base": "GoapAction",
-"class": "SearchGoapAction",
+"class": "SearchAction",
 "language": "GDScript",
-"path": "res://src/scripts/GOAP/actions/SearchGoapAction.gd"
+"path": "res://src/scripts/GOAP/actions/SearchAction.gd"
 }, {
 "base": "GoapAction",
-"class": "SleepGoapAction",
+"class": "SleepAction",
 "language": "GDScript",
-"path": "res://src/scripts/GOAP/actions/SleepGoapAction.gd"
+"path": "res://src/scripts/GOAP/actions/SleepAction.gd"
 }, {
 "base": "Node",
 "class": "SmartObject",
@@ -90,12 +90,12 @@ _global_script_classes=[ {
 "path": "res://src/scripts/SmartObjects/SmartObject.gd"
 }, {
 "base": "GoapAction",
-"class": "TakeQuestGoapAction",
+"class": "TakeQuestAction",
 "language": "GDScript",
-"path": "res://src/scripts/GOAP/actions/TakeQuestGoapAction.gd"
+"path": "res://src/scripts/GOAP/actions/TakeQuestAction.gd"
 } ]
 _global_script_class_icons={
-"EatGoapAction": "",
+"EatAction": "",
 "ForestStates": "",
 "GoapAction": "",
 "GoapAgent": "",
@@ -105,13 +105,13 @@ _global_script_class_icons={
 "HomeAgent": "",
 "HomeStates": "",
 "NavigationManager": "",
-"PerformQuestGoapAction": "",
-"PickupTreasureGoapAction": "",
-"RestGoapAction": "",
-"SearchGoapAction": "",
-"SleepGoapAction": "",
+"PerformQuestAction": "",
+"PickupTreasureAction": "",
+"RestAction": "",
+"SearchAction": "",
+"SleepAction": "",
 "SmartObject": "",
-"TakeQuestGoapAction": ""
+"TakeQuestAction": ""
 }
 
 [application]
