@@ -7,7 +7,6 @@ var owner: Node
 var current_state: int = State.PLANNING
 
 # Planning fields
-var planner: GoapPlanner = GoapPlanner.new()
 var agent_profile: GoapAgent
 var current_plan: Array = []
 
@@ -55,7 +54,7 @@ func on_update():
 				on_action_update()
 
 func on_planning_update():
-	var new_plan = planner.generate_plan(agent_profile.generate_current_state(), agent_profile)
+	var new_plan = GoapPlanner.generate_plan(agent_profile.generate_current_state(), agent_profile)
 	if new_plan and current_plan.hash() != new_plan.hash():
 		current_plan = new_plan
 
