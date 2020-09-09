@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/scripts/SmartObjects/Treasure.gd" type="Script" id=1]
 [ext_resource path="res://src/scripts/Camera.gd" type="Script" id=2]
@@ -80,9 +80,12 @@ radial_segments = 16
 albedo_color = Color( 0.2, 0.0705882, 0.0705882, 1 )
 
 [sub_resource type="SpatialMaterial" id=15]
-albedo_color = Color( 0, 0, 0, 1 )
+albedo_color = Color( 0.247059, 0.231373, 0.231373, 1 )
 
 [sub_resource type="BoxShape" id=16]
+extents = Vector3( 0.554563, 0.329157, 0.327812 )
+
+[sub_resource type="BoxShape" id=17]
 extents = Vector3( 0.25, 1, 0.25 )
 
 [node name="Spatial" type="Spatial"]
@@ -704,4 +707,4 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Questgiver"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0 )
-shape = SubResource( 16 )
+shape = SubResource( 17 )
