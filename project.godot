@@ -9,6 +9,21 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "GoapAgent",
+"class": "DMAgent",
+"language": "GDScript",
+"path": "res://src/scripts/HGOAP/DMAgent.gd"
+}, {
+"base": "Reference",
+"class": "DMStateMachine",
+"language": "GDScript",
+"path": "res://src/scripts/HGOAP/DMStateMachine.gd"
+}, {
+"base": "Reference",
+"class": "DMStates",
+"language": "GDScript",
+"path": "res://src/scripts/HGOAP/DMStates.gd"
+}, {
 "base": "GoapAction",
 "class": "EatAction",
 "language": "GDScript",
@@ -95,6 +110,9 @@ _global_script_classes=[ {
 "path": "res://src/scripts/GOAP/actions/TakeQuestAction.gd"
 } ]
 _global_script_class_icons={
+"DMAgent": "",
+"DMStateMachine": "",
+"DMStates": "",
 "EatAction": "",
 "ForestStates": "",
 "GoapAction": "",

@@ -1,0 +1,8 @@
+class_name DMStates
+
+enum StateConditions {
+	HERO_HAS_TREASURE,
+	HERO_KNOWS_TREASURE,
+	HERO_KNOWS_QUESTGIVER,
+	HERO_HAS_QUEST,
+}
