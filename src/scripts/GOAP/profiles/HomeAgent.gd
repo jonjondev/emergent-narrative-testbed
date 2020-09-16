@@ -11,7 +11,7 @@ func _init(owner):
 		EatAction,
 		SleepAction,
 		SearchAction,
-		RestAction,
+		#RestAction,
 	]
 	.setup(owner, HomeStates.StateConditions.size())
 

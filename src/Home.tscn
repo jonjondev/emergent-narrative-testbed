@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/scripts/SmartObjects/Food.gd" type="Script" id=1]
 [ext_resource path="res://src/scripts/SmartObjects/Bed.gd" type="Script" id=2]
@@ -7,8 +7,8 @@
 [ext_resource path="res://src/scripts/GOAP/profiles/HomeAgent.gd" type="Script" id=5]
 
 [sub_resource type="NavigationMesh" id=1]
-vertices = PoolVector3Array( -1, 0.3, -2, -0.8, 0.3, -2, -0.8, 0.3, -2.3, -1, 0.3, -2.3, -0.5, 0.3, -2.6, 0, 0.3, -2.6, 0, 0.3, -4.2, -1.3, 0.3, -2.6, -1, 0.3, -2.3, -0.8, 0.3, -2.3, -0.5, 0.3, -2.6, 0, 0.3, -4.2, -4.6, 0.3, -4.2, -4.6, 0.3, -2.6, -1.3, 0.3, -2.6, 0, 0.3, -4.2, 2.9, 0.3, -2, 3.2, 0.3, -2, 3.2, 0.3, -2.3, 2.9, 0.3, -2.3, 3.5, 0.3, -2.6, 4.6, 0.3, -2.6, 4.6, 0.3, -4.2, 2.6, 0.3, -2.6, 2.9, 0.3, -2.3, 3.2, 0.3, -2.3, 3.5, 0.3, -2.6, 4.6, 0.3, -4.2, 1.4, 0.3, -4.2, 1.4, 0.3, -4.2, 1.4, 0.3, -2.6, 2.6, 0.3, -2.6, -0.8, 0.3, -1.7, -0.8, 0.3, -2, -1, 0.3, -2, -1, 0.3, -1.7, -2.3, 0.3, 0.0999999, -2, 0.3, -0.2, -2.3, 0.3, -0.8, -4.6, 0.3, -0.8, -4.6, 0.3, 0.9, -0.5, 0.3, -1.4, -0.8, 0.3, -1.7, -1, 0.3, -1.7, -1.3, 0.3, -1.4, -1.3, 0.3, -1.4, -2, 0.3, -1.4, -2, 0.3, -1.1, -4.6, 0.3, 0.9, -2.3, 0.3, 0.8, -2.3, 0.3, 0.0999999, -1.3, 0.3, -1.4, -2, 0.3, -1.1, -2.3, 0.3, -0.8, -2, 0.3, -0.2, 1.1, 0.3, -0.4, -0.5, 0.3, -1.4, 1.1, 0.3, -0.4, 1.1, 0.3, -1.4, -0.5, 0.3, -1.4, 3.2, 0.3, -1.7, 3.2, 0.3, -2, 2.9, 0.3, -2, 2.9, 0.3, -1.7, 3.7, 0.3, 0.5, 4, 0.3, 0.5, 4.2, 0.3, -0.5, 3.8, 0.3, -0.9, 3.8, 0.3, -0.9, 4, 0.3, -1.4, 3.5, 0.3, -1.4, 3.5, 0.3, -1.4, 3.2, 0.3, -1.7, 2.9, 0.3, -1.7, 2.6, 0.3, -1.4, 3.8, 0.3, -0.9, 1.1, 0.3, -1.4, 1.1, 0.3, -0.4, 1.6, 0.3, -0.0999999, 2.6, 0.3, -1.4, 4, 0.3, 0.5, 4.6, 0.3, 1.2, 4.6, 0.3, -0.6, 4.2, 0.3, -0.5, 1.6, 0.3, -0.0999999, 1.6, 0.3, 1.4, 2.4, 0.3, 1.5, 3.7, 0.3, 0.5, 3.8, 0.3, -0.9, 2.6, 0.3, -1.4, -1.5, 0.3, 2.6, -1.5, 0.3, 2, -1.9, 0.3, 2, -1.9, 0.3, 2.9, -1.5, 0.3, 2.6, -1.9, 0.3, 2, -2.2, 0.3, 1.7, -1.9, 0.3, 4.4, -1.9, 0.3, 2.9, -2.2, 0.3, 1.7, -4.6, 0.3, 0.9, -4.6, 0.3, 4.6, -2.2, 0.3, 1.7, -2.3, 0.3, 0.8, -4.6, 0.3, 0.9, -4.6, 0.3, 4.6, -1.7, 0.3, 4.6, -1.9, 0.3, 4.4, 2.4, 0.3, 2, 2.4, 0.3, 1.5, 1.6, 0.3, 1.4, 1.3, 0.3, 1.8, 2, 0.3, 2.9, 2, 0.3, 4.4, 3.5, 0.3, 3.4, 2.4, 0.3, 2, 2.4, 0.3, 2, 1.3, 0.3, 1.8, 0.9, 0.3, 1.9, 1.7, 0.3, 2.6, 4.6, 0.3, 4.6, 4.6, 0.3, 2.9, 3.5, 0.3, 3.4, 2, 0.3, 4.4, 1.8, 0.3, 4.6, 1.7, 0.3, 2.6, 2, 0.3, 2.9, 2.4, 0.3, 2, -1.5, 0.3, 2.6, 1.7, 0.3, 2.6, 0.9, 0.3, 1.9, -1.5, 0.3, 2 )
-polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 6, 5, 4 ), PoolIntArray( 11, 10, 7 ), PoolIntArray( 7, 10, 9 ), PoolIntArray( 7, 9, 8 ), PoolIntArray( 15, 14, 12 ), PoolIntArray( 12, 14, 13 ), PoolIntArray( 19, 18, 16 ), PoolIntArray( 16, 18, 17 ), PoolIntArray( 22, 21, 20 ), PoolIntArray( 28, 27, 23 ), PoolIntArray( 23, 27, 26 ), PoolIntArray( 23, 26, 25 ), PoolIntArray( 23, 25, 24 ), PoolIntArray( 31, 30, 29 ), PoolIntArray( 35, 34, 32 ), PoolIntArray( 32, 34, 33 ), PoolIntArray( 40, 39, 36 ), PoolIntArray( 36, 39, 37 ), PoolIntArray( 37, 39, 38 ), PoolIntArray( 44, 43, 41 ), PoolIntArray( 41, 43, 42 ), PoolIntArray( 47, 46, 45 ), PoolIntArray( 50, 49, 48 ), PoolIntArray( 56, 55, 51 ), PoolIntArray( 51, 55, 52 ), PoolIntArray( 52, 55, 53 ), PoolIntArray( 53, 55, 54 ), PoolIntArray( 59, 58, 57 ), PoolIntArray( 63, 62, 60 ), PoolIntArray( 60, 62, 61 ), PoolIntArray( 67, 66, 64 ), PoolIntArray( 64, 66, 65 ), PoolIntArray( 70, 69, 68 ), PoolIntArray( 75, 74, 71 ), PoolIntArray( 71, 74, 73 ), PoolIntArray( 71, 73, 72 ), PoolIntArray( 79, 78, 76 ), PoolIntArray( 76, 78, 77 ), PoolIntArray( 83, 82, 80 ), PoolIntArray( 80, 82, 81 ), PoolIntArray( 89, 88, 84 ), PoolIntArray( 84, 88, 87 ), PoolIntArray( 84, 87, 86 ), PoolIntArray( 84, 86, 85 ), PoolIntArray( 92, 91, 90 ), PoolIntArray( 96, 95, 93 ), PoolIntArray( 93, 95, 94 ), PoolIntArray( 101, 100, 97 ), PoolIntArray( 97, 100, 98 ), PoolIntArray( 98, 100, 99 ), PoolIntArray( 104, 103, 102 ), PoolIntArray( 107, 106, 105 ), PoolIntArray( 111, 110, 108 ), PoolIntArray( 108, 110, 109 ), PoolIntArray( 115, 114, 112 ), PoolIntArray( 112, 114, 113 ), PoolIntArray( 119, 118, 116 ), PoolIntArray( 116, 118, 117 ), PoolIntArray( 124, 123, 120 ), PoolIntArray( 120, 123, 122 ), PoolIntArray( 120, 122, 121 ), PoolIntArray( 127, 126, 125 ), PoolIntArray( 131, 130, 128 ), PoolIntArray( 128, 130, 129 ) ]
+vertices = PoolVector3Array( -1, 0.3, -2, -0.8, 0.3, -2, -0.8, 0.3, -2.3, -1, 0.3, -2.3, -0.5, 0.3, -2.6, 0, 0.3, -2.6, 0, 0.3, -4.2, -1.3, 0.3, -2.6, -1, 0.3, -2.3, -0.8, 0.3, -2.3, -0.5, 0.3, -2.6, 0, 0.3, -4.2, -4.6, 0.3, -4.2, -4.6, 0.3, -2.6, -1.3, 0.3, -2.6, 0, 0.3, -4.2, -0.8, 0.3, -1.7, -0.8, 0.3, -2, -1, 0.3, -2, -1, 0.3, -1.7, -2.3, 0.3, 0.0999999, -2, 0.3, -0.2, -2.3, 0.3, -0.8, -4.6, 0.3, -0.8, -4.6, 0.3, 0.9, -0.5, 0.3, -1.4, -0.8, 0.3, -1.7, -1, 0.3, -1.7, -1.3, 0.3, -1.4, -1.3, 0.3, -1.4, -2, 0.3, -1.4, -2, 0.3, -1.1, -4.6, 0.3, 0.9, -2.3, 0.3, 0.8, -2.3, 0.3, 0.0999999, -1.3, 0.3, -1.4, -2, 0.3, -1.1, -2.3, 0.3, -0.8, -2, 0.3, -0.2, 1.1, 0.3, -0.4, -0.5, 0.3, -1.4, 1.1, 0.3, -0.4, 1.1, 0.3, -1.4, -0.5, 0.3, -1.4, 4, 0.3, 0.5, 4.6, 0.3, 1.2, 4.6, 0.3, -0.6, 4.2, 0.3, -0.5, 3.7, 0.3, 0.5, 4.2, 0.3, -0.5, 3.8, 0.3, -0.9, 1.6, 0.3, -0.0999999, 1.6, 0.3, 1.4, 2.4, 0.3, 1.5, 3.7, 0.3, 0.5, 4, 0.3, 0.5, 4.2, 0.3, -0.5, 1.1, 0.3, -1.4, 1.1, 0.3, -0.4, 1.6, 0.3, -0.0999999, 3.8, 0.3, -0.9, 4, 0.3, -1.4, -1.5, 0.3, 2.6, -1.5, 0.3, 2, -1.9, 0.3, 2, -1.9, 0.3, 2.9, -1.5, 0.3, 2.6, -1.9, 0.3, 2, -2.2, 0.3, 1.7, -1.9, 0.3, 4.4, -1.9, 0.3, 2.9, -2.2, 0.3, 1.7, -4.6, 0.3, 0.9, -4.6, 0.3, 4.6, -2.2, 0.3, 1.7, -2.3, 0.3, 0.8, -4.6, 0.3, 0.9, -4.6, 0.3, 4.6, -1.7, 0.3, 4.6, -1.9, 0.3, 4.4, 2.4, 0.3, 2, 2.4, 0.3, 1.5, 1.6, 0.3, 1.4, 1.3, 0.3, 1.8, 2, 0.3, 2.9, 2, 0.3, 4.4, 3.5, 0.3, 3.4, 2.4, 0.3, 2, 2.4, 0.3, 2, 1.3, 0.3, 1.8, 0.9, 0.3, 1.9, 1.7, 0.3, 2.6, 4.6, 0.3, 4.6, 4.6, 0.3, 2.9, 3.5, 0.3, 3.4, 2, 0.3, 4.4, 1.8, 0.3, 4.6, 1.7, 0.3, 2.6, 2, 0.3, 2.9, 2.4, 0.3, 2, -1.5, 0.3, 2.6, 1.7, 0.3, 2.6, 0.9, 0.3, 1.9, -1.5, 0.3, 2 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 6, 5, 4 ), PoolIntArray( 11, 10, 7 ), PoolIntArray( 7, 10, 9 ), PoolIntArray( 7, 9, 8 ), PoolIntArray( 15, 14, 12 ), PoolIntArray( 12, 14, 13 ), PoolIntArray( 19, 18, 16 ), PoolIntArray( 16, 18, 17 ), PoolIntArray( 24, 23, 20 ), PoolIntArray( 20, 23, 21 ), PoolIntArray( 21, 23, 22 ), PoolIntArray( 28, 27, 25 ), PoolIntArray( 25, 27, 26 ), PoolIntArray( 31, 30, 29 ), PoolIntArray( 34, 33, 32 ), PoolIntArray( 40, 39, 35 ), PoolIntArray( 35, 39, 36 ), PoolIntArray( 36, 39, 37 ), PoolIntArray( 37, 39, 38 ), PoolIntArray( 43, 42, 41 ), PoolIntArray( 47, 46, 44 ), PoolIntArray( 44, 46, 45 ), PoolIntArray( 53, 52, 48 ), PoolIntArray( 48, 52, 51 ), PoolIntArray( 48, 51, 50 ), PoolIntArray( 48, 50, 49 ), PoolIntArray( 56, 55, 54 ), PoolIntArray( 61, 60, 57 ), PoolIntArray( 57, 60, 59 ), PoolIntArray( 57, 59, 58 ), PoolIntArray( 64, 63, 62 ), PoolIntArray( 68, 67, 65 ), PoolIntArray( 65, 67, 66 ), PoolIntArray( 73, 72, 69 ), PoolIntArray( 69, 72, 70 ), PoolIntArray( 70, 72, 71 ), PoolIntArray( 76, 75, 74 ), PoolIntArray( 79, 78, 77 ), PoolIntArray( 83, 82, 80 ), PoolIntArray( 80, 82, 81 ), PoolIntArray( 87, 86, 84 ), PoolIntArray( 84, 86, 85 ), PoolIntArray( 91, 90, 88 ), PoolIntArray( 88, 90, 89 ), PoolIntArray( 96, 95, 92 ), PoolIntArray( 92, 95, 94 ), PoolIntArray( 92, 94, 93 ), PoolIntArray( 99, 98, 97 ), PoolIntArray( 103, 102, 100 ), PoolIntArray( 100, 102, 101 ) ]
 cell/size = 0.1
 cell/height = 0.1
 agent/height = 1.4
@@ -26,6 +26,9 @@ albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.219608, 0.160784, 0.160784, 1 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_color = Color( 0.235294, 0.196078, 0.196078, 1 )
 
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.0980392, 0.0862745, 0.0823529, 1 )
@@ -140,6 +143,27 @@ operation = 2
 width = 1.15635
 height = 3.05302
 depth = 0.911931
+
+[node name="Door" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01099, 1.11978, -1.982 )
+material_override = SubResource( 17 )
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/Door"]
+width = 1.2
+depth = 0.29754
+
+[node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.44109 )
+width = 2.07436
+height = 0.497573
+depth = 0.848934
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.462934, 0, 0 )
+width = 0.0828165
+height = 0.0612848
+depth = 0.542998
 
 [node name="Lamp" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31558, 1.32545, -1.04836 )

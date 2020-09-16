@@ -5,9 +5,11 @@ static func generate_plan(current_state, profile):
 		return null
 	var potential_plans = generate_valid_paths(current_state, profile)
 	var selected_plan_idx = 0
-	while contains_indirection(potential_plans[selected_plan_idx]) and selected_plan_idx < potential_plans.size() - 1:
-		selected_plan_idx += 1
-	return potential_plans[selected_plan_idx]
+	if potential_plans.size() > 0:
+		while contains_indirection(potential_plans[selected_plan_idx]) and selected_plan_idx < potential_plans.size() - 1:
+			selected_plan_idx += 1
+		return potential_plans[selected_plan_idx]
+	return []
 
 static func generate_valid_paths(current_state, profile):
 	var found_plans = []

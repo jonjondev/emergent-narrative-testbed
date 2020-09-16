@@ -5,7 +5,7 @@
 [ext_resource path="res://src/scripts/GOAP/profiles/HeroAgent.gd" type="Script" id=3]
 [ext_resource path="res://src/Agent.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/scripts/SmartObjects/Questgiver.gd" type="Script" id=5]
-[ext_resource path="res://src/scripts/HGOAP/DramaManager.gd" type="Script" id=6]
+[ext_resource path="res://src/DramaManager.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ProceduralSky" id=1]
 ground_bottom_color = Color( 0.286275, 0.372549, 0.290196, 1 )
@@ -91,11 +91,7 @@ extents = Vector3( 0.25, 1, 0.25 )
 
 [node name="Spatial" type="Spatial"]
 
-[node name="DramaManager" type="Spatial" parent="."]
-script = ExtResource( 6 )
-
-[node name="AITime" type="Timer" parent="DramaManager"]
-autostart = true
+[node name="DramaManager" parent="." instance=ExtResource( 6 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
