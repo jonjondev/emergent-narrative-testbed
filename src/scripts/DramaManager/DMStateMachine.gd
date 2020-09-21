@@ -1,13 +1,15 @@
 class_name DMStateMachine
 
-enum State { PLANNING, ACTION, NAVIGATION }
+enum State { PLANNING, ACTION }
+
+var agent_profiles: Array = []
 
 # State machine fields
 var owner: Node
 var current_state: int = State.PLANNING
 
 # Planning fields
-var agent_profile: DMAgent
+var dm_profile: DMAgent
 var current_plan: Array = []
 
 # Action fields
@@ -16,7 +18,7 @@ var current_action: GoapAction = null
 
 func _init(o, profile):
 	owner = o
-	agent_profile = profile.new(owner)
+	dm_profile = profile.new(owner)
 
 func on_update():
 	match(current_state):
@@ -39,7 +41,7 @@ func on_update():
 				on_action_update()
 
 func on_planning_update():
-	var new_plan = generate_plan(agent_profile.generate_current_state(), agent_profile)
+	var new_plan = generate_plan(dm_profile.generate_current_state())
 	if new_plan and current_plan.hash() != new_plan.hash():
 		current_plan = new_plan
 
@@ -47,7 +49,7 @@ func on_action_enter():
 	current_action = current_plan.front() if current_plan else null
 
 func on_action_update():
-	if current_action && GoapPlanner.conditions_valid(agent_profile.generate_current_state(), current_action.preconditions):
+	if current_action && GoapPlanner.conditions_valid(dm_profile.generate_current_state(), current_action.preconditions):
 		if not action_setup:
 			current_action.setup()
 			action_setup = true
@@ -57,26 +59,26 @@ func on_action_update():
 			action_setup = false
 	else:
 		current_plan.clear()
-	
-static func generate_plan(current_state, profile):
-	if GoapPlanner.conditions_valid(current_state, profile.goal_state):
-		return null
-	return generate_valid_paths(current_state, profile)
 
-static func generate_valid_paths(current_state, profile):
-	var checked_actions = []
-	var potential_state_paths = [GoapPlanner.new_state_path(current_state, [])]
-	while not potential_state_paths.empty():
-		var state_path = potential_state_paths.pop_front()
-		for action in profile.actions:
-			if checked_actions.has(action):
-				continue
-			if GoapPlanner.conditions_valid(state_path.conditions, action.preconditions):
-				var new_actions = state_path.actions.duplicate()
-				new_actions.append(action)
-				var action_state = GoapPlanner.apply_effects(state_path.conditions, action.effects)
-				if GoapPlanner.conditions_valid(action_state, profile.goal_state):
-					return new_actions
-				else:
-					potential_state_paths.append(GoapPlanner.new_state_path(action_state, new_actions))
-					checked_actions.append(action)
+func generate_plan(current_state):
+	if GoapPlanner.conditions_valid(current_state, dm_profile.goal_state):
+		return null
+	for agent_profile in agent_profiles:
+		if not state_meets_goals(current_state, agent_profile, dm_profile.goal_state):
+			for action in dm_profile.actions:
+				var new_state = GoapPlanner.apply_effects(current_state, action.effects)
+				if state_meets_goals(new_state, agent_profile, dm_profile.goal_state):
+					return [action]
+
+func state_meets_goals(current_state, profile, goals):
+	var plan = GoapPlanner.generate_plan(current_state, profile)
+	if plan:
+		return contains_desired_effects(plan, goals)
+
+func contains_desired_effects(plan, goals):
+	GoapPlanner.print_plan(plan)
+	for action in plan:
+		for key in action.effects.keys():
+			if goals.has(key) and goals[key] == action.effects[key]:
+				goals.erase(key)
+	return goals.empty()

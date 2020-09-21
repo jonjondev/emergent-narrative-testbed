@@ -10,6 +10,7 @@ func _init(o).(o):
 	}
 	effects = {
 		HomeStates.StateConditions.DOOR_UNCHECKED: false,
+		HomeStates.StateConditions.DOOR_OPENED: true,
 	}
 
 func setup() -> void:

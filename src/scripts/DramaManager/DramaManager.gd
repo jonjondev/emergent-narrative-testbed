@@ -9,4 +9,5 @@ func _ready():
 	var _err = $AITime.connect("timeout", self , "ai_process")
 
 func ai_process() -> void:
+	behaviour_algorithm.agent_profiles.append(owner.get_tree().get_nodes_in_group("agent")[0].behaviour_algorithm.agent_profile)
 	behaviour_algorithm.on_update()

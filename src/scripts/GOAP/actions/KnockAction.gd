@@ -8,5 +8,5 @@ func _init(o).(o):
 	}
 
 func perform():
-	owner.blackboard.get("door")[0].knock()
+	owner.get_tree().get_nodes_in_group("door")[0].knock()
 	return true
