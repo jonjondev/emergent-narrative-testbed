@@ -9,4 +9,5 @@ enum StateConditions {
 	KNOWS_BED,
 	KNOWS_CHAIR,
 	KNOWS_DOOR,
+	DOOR_OPENED,
 }

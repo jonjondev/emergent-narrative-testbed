@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/scripts/SmartObjects/Food.gd" type="Script" id=1]
 [ext_resource path="res://src/scripts/SmartObjects/Bed.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/scripts/GOAP/profiles/HomeAgent.gd" type="Script" id=5]
 [ext_resource path="res://src/scripts/SmartObjects/Door.gd" type="Script" id=6]
 [ext_resource path="res://src/3DText.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/DramaManager.tscn" type="PackedScene" id=8]
 
 [sub_resource type="NavigationMesh" id=1]
 vertices = PoolVector3Array( -1, 0.3, -2, -0.8, 0.3, -2, -0.8, 0.3, -2.3, -1, 0.3, -2.3, -0.5, 0.3, -2.6, 0, 0.3, -2.6, 0, 0.3, -4.2, -1.3, 0.3, -2.6, -1, 0.3, -2.3, -0.8, 0.3, -2.3, -0.5, 0.3, -2.6, 0, 0.3, -4.2, -4.6, 0.3, -4.2, -4.6, 0.3, -2.6, -1.3, 0.3, -2.6, 0, 0.3, -4.2, -0.8, 0.3, -1.7, -0.8, 0.3, -2, -1, 0.3, -2, -1, 0.3, -1.7, -2.3, 0.3, 0.0999999, -2, 0.3, -0.2, -2.3, 0.3, -0.8, -4.6, 0.3, -0.8, -4.6, 0.3, 0.9, -0.5, 0.3, -1.4, -0.8, 0.3, -1.7, -1, 0.3, -1.7, -1.3, 0.3, -1.4, -1.3, 0.3, -1.4, -2, 0.3, -1.4, -2, 0.3, -1.1, -4.6, 0.3, 0.9, -2.3, 0.3, 0.8, -2.3, 0.3, 0.0999999, -1.3, 0.3, -1.4, -2, 0.3, -1.1, -2.3, 0.3, -0.8, -2, 0.3, -0.2, 1.1, 0.3, -0.4, -0.5, 0.3, -1.4, 1.1, 0.3, -0.4, 1.1, 0.3, -1.4, -0.5, 0.3, -1.4, 4, 0.3, 0.5, 4.6, 0.3, 1.2, 4.6, 0.3, -0.6, 4.2, 0.3, -0.5, 3.7, 0.3, 0.5, 4.2, 0.3, -0.5, 3.8, 0.3, -0.9, 1.6, 0.3, -0.0999999, 1.6, 0.3, 1.4, 2.4, 0.3, 1.5, 3.7, 0.3, 0.5, 4, 0.3, 0.5, 4.2, 0.3, -0.5, 1.1, 0.3, -1.4, 1.1, 0.3, -0.4, 1.6, 0.3, -0.0999999, 3.8, 0.3, -0.9, 4, 0.3, -1.4, -1.5, 0.3, 2.6, -1.5, 0.3, 2, -1.9, 0.3, 2, -1.9, 0.3, 2.9, -1.5, 0.3, 2.6, -1.9, 0.3, 2, -2.2, 0.3, 1.7, -1.9, 0.3, 4.4, -1.9, 0.3, 2.9, -2.2, 0.3, 1.7, -4.6, 0.3, 0.9, -4.6, 0.3, 4.6, -2.2, 0.3, 1.7, -2.3, 0.3, 0.8, -4.6, 0.3, 0.9, -4.6, 0.3, 4.6, -1.7, 0.3, 4.6, -1.9, 0.3, 4.4, 2.4, 0.3, 2, 2.4, 0.3, 1.5, 1.6, 0.3, 1.4, 1.3, 0.3, 1.8, 2, 0.3, 2.9, 2, 0.3, 4.4, 3.5, 0.3, 3.4, 2.4, 0.3, 2, 2.4, 0.3, 2, 1.3, 0.3, 1.8, 0.9, 0.3, 1.9, 1.7, 0.3, 2.6, 4.6, 0.3, 4.6, 4.6, 0.3, 2.9, 3.5, 0.3, 3.4, 2, 0.3, 4.4, 1.8, 0.3, 4.6, 1.7, 0.3, 2.6, 2, 0.3, 2.9, 2.4, 0.3, 2, -1.5, 0.3, 2.6, 1.7, 0.3, 2.6, 0.9, 0.3, 1.9, -1.5, 0.3, 2 )
@@ -74,6 +75,8 @@ extents = Vector3( 0.514493, 0.355157, 0.492047 )
 
 [node name="Spatial" type="Spatial"]
 
+[node name="DramaManager" parent="." instance=ExtResource( 8 )]
+
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 4, 8.5 )
 
@@ -89,7 +92,9 @@ directional_shadow_split_1 = 0.234
 directional_shadow_split_2 = 0.238
 directional_shadow_max_distance = 20.0
 
-[node name="Johnny" parent="." instance=ExtResource( 4 )]
+[node name="Johnny" parent="." groups=[
+"agent",
+] instance=ExtResource( 4 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -3.34424, 0.335912, 2.39345 )
 collision_layer = 2
 character_name = "Johnny"
