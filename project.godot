@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "GoapAction",
+"class": "AnswerDoorAction",
+"language": "GDScript",
+"path": "res://src/scripts/GOAP/actions/AnswerDoorAction.gd"
+}, {
 "base": "GoapAgent",
 "class": "DMAgent",
 "language": "GDScript",
@@ -110,6 +115,7 @@ _global_script_classes=[ {
 "path": "res://src/scripts/GOAP/actions/TakeQuestAction.gd"
 } ]
 _global_script_class_icons={
+"AnswerDoorAction": "",
 "DMAgent": "",
 "DMStateMachine": "",
 "DMStates": "",
@@ -135,7 +141,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Emergent Narrative Testbed"
-run/main_scene="res://src/Forest.tscn"
+run/main_scene="res://src/Home.tscn"
 config/icon="res://icon.png"
 
 [rendering]

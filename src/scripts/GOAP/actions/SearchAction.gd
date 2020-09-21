@@ -5,11 +5,11 @@ func _init(o).(o):
 	is_indirect = true
 	preconditions = {}
 	effects = {
-		#HomeStates.StateConditions.KNOWS_FOOD: true,
-		#HomeStates.StateConditions.KNOWS_BED: true,
-		#HomeStates.StateConditions.KNOWS_CHAIR: true,
-		ForestStates.StateConditions.KNOWS_QUESTGIVER: true,
-		ForestStates.StateConditions.KNOWS_TREASURE: true,
+		HomeStates.StateConditions.KNOWS_FOOD: true,
+		HomeStates.StateConditions.KNOWS_BED: true,
+		HomeStates.StateConditions.KNOWS_CHAIR: true,
+		#ForestStates.StateConditions.KNOWS_QUESTGIVER: true,
+		#ForestStates.StateConditions.KNOWS_TREASURE: true,
 	}
 
 func setup() -> void:

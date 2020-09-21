@@ -1,10 +1,12 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/scripts/SmartObjects/Food.gd" type="Script" id=1]
 [ext_resource path="res://src/scripts/SmartObjects/Bed.gd" type="Script" id=2]
 [ext_resource path="res://src/scripts/SmartObjects/Chair.gd" type="Script" id=3]
 [ext_resource path="res://src/Agent.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/scripts/GOAP/profiles/HomeAgent.gd" type="Script" id=5]
+[ext_resource path="res://src/scripts/SmartObjects/Door.gd" type="Script" id=6]
+[ext_resource path="res://src/3DText.tscn" type="PackedScene" id=7]
 
 [sub_resource type="NavigationMesh" id=1]
 vertices = PoolVector3Array( -1, 0.3, -2, -0.8, 0.3, -2, -0.8, 0.3, -2.3, -1, 0.3, -2.3, -0.5, 0.3, -2.6, 0, 0.3, -2.6, 0, 0.3, -4.2, -1.3, 0.3, -2.6, -1, 0.3, -2.3, -0.8, 0.3, -2.3, -0.5, 0.3, -2.6, 0, 0.3, -4.2, -4.6, 0.3, -4.2, -4.6, 0.3, -2.6, -1.3, 0.3, -2.6, 0, 0.3, -4.2, -0.8, 0.3, -1.7, -0.8, 0.3, -2, -1, 0.3, -2, -1, 0.3, -1.7, -2.3, 0.3, 0.0999999, -2, 0.3, -0.2, -2.3, 0.3, -0.8, -4.6, 0.3, -0.8, -4.6, 0.3, 0.9, -0.5, 0.3, -1.4, -0.8, 0.3, -1.7, -1, 0.3, -1.7, -1.3, 0.3, -1.4, -1.3, 0.3, -1.4, -2, 0.3, -1.4, -2, 0.3, -1.1, -4.6, 0.3, 0.9, -2.3, 0.3, 0.8, -2.3, 0.3, 0.0999999, -1.3, 0.3, -1.4, -2, 0.3, -1.1, -2.3, 0.3, -0.8, -2, 0.3, -0.2, 1.1, 0.3, -0.4, -0.5, 0.3, -1.4, 1.1, 0.3, -0.4, 1.1, 0.3, -1.4, -0.5, 0.3, -1.4, 4, 0.3, 0.5, 4.6, 0.3, 1.2, 4.6, 0.3, -0.6, 4.2, 0.3, -0.5, 3.7, 0.3, 0.5, 4.2, 0.3, -0.5, 3.8, 0.3, -0.9, 1.6, 0.3, -0.0999999, 1.6, 0.3, 1.4, 2.4, 0.3, 1.5, 3.7, 0.3, 0.5, 4, 0.3, 0.5, 4.2, 0.3, -0.5, 1.1, 0.3, -1.4, 1.1, 0.3, -0.4, 1.6, 0.3, -0.0999999, 3.8, 0.3, -0.9, 4, 0.3, -1.4, -1.5, 0.3, 2.6, -1.5, 0.3, 2, -1.9, 0.3, 2, -1.9, 0.3, 2.9, -1.5, 0.3, 2.6, -1.9, 0.3, 2, -2.2, 0.3, 1.7, -1.9, 0.3, 4.4, -1.9, 0.3, 2.9, -2.2, 0.3, 1.7, -4.6, 0.3, 0.9, -4.6, 0.3, 4.6, -2.2, 0.3, 1.7, -2.3, 0.3, 0.8, -4.6, 0.3, 0.9, -4.6, 0.3, 4.6, -1.7, 0.3, 4.6, -1.9, 0.3, 4.4, 2.4, 0.3, 2, 2.4, 0.3, 1.5, 1.6, 0.3, 1.4, 1.3, 0.3, 1.8, 2, 0.3, 2.9, 2, 0.3, 4.4, 3.5, 0.3, 3.4, 2.4, 0.3, 2, 2.4, 0.3, 2, 1.3, 0.3, 1.8, 0.9, 0.3, 1.9, 1.7, 0.3, 2.6, 4.6, 0.3, 4.6, 4.6, 0.3, 2.9, 3.5, 0.3, 3.4, 2, 0.3, 4.4, 1.8, 0.3, 4.6, 1.7, 0.3, 2.6, 2, 0.3, 2.9, 2.4, 0.3, 2, -1.5, 0.3, 2.6, 1.7, 0.3, 2.6, 0.9, 0.3, 1.9, -1.5, 0.3, 2 )
@@ -27,13 +29,13 @@ albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.219608, 0.160784, 0.160784, 1 )
 
-[sub_resource type="SpatialMaterial" id=17]
+[sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.235294, 0.196078, 0.196078, 1 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0.0980392, 0.0862745, 0.0823529, 1 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 0.560784, 0.764706, 1, 1 )
 emission_enabled = true
 emission = Color( 0, 0, 0, 1 )
@@ -43,31 +45,31 @@ emission_on_uv2 = false
 transmission_enabled = true
 transmission = Color( 0.686275, 0.686275, 0.686275, 1 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0.239216, 0.0862745, 0.0862745, 1 )
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=10]
 albedo_color = Color( 0.741176, 0.588235, 0.45098, 1 )
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=11]
 albedo_color = Color( 0.447059, 0.0470588, 0.0470588, 1 )
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=12]
 albedo_color = Color( 0.2, 0.0705882, 0.0705882, 1 )
 
-[sub_resource type="SpatialMaterial" id=12]
+[sub_resource type="SpatialMaterial" id=13]
 albedo_color = Color( 0.690196, 0.701961, 0.698039, 1 )
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=14]
 albedo_color = Color( 1, 0.494118, 0, 1 )
 
-[sub_resource type="BoxShape" id=14]
+[sub_resource type="BoxShape" id=15]
 extents = Vector3( 0.587588, 0.34669, 0.49303 )
 
-[sub_resource type="BoxShape" id=15]
+[sub_resource type="BoxShape" id=16]
 extents = Vector3( 1, 0.190944, 0.515143 )
 
-[sub_resource type="BoxShape" id=16]
+[sub_resource type="BoxShape" id=17]
 extents = Vector3( 0.514493, 0.355157, 0.492047 )
 
 [node name="Spatial" type="Spatial"]
@@ -146,7 +148,7 @@ depth = 0.911931
 
 [node name="Door" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01099, 1.11978, -1.982 )
-material_override = SubResource( 17 )
+material_override = SubResource( 6 )
 use_collision = true
 
 [node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/Door"]
@@ -167,7 +169,7 @@ depth = 0.542998
 
 [node name="Lamp" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31558, 1.32545, -1.04836 )
-material_override = SubResource( 6 )
+material_override = SubResource( 7 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Navigation/NavigationMeshInstance/Lamp"]
 radius = 0.05
@@ -181,7 +183,7 @@ sides = 20
 
 [node name="LampShade" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31558, 1.32545, -1.04836 )
-material_override = SubResource( 7 )
+material_override = SubResource( 8 )
 cast_shadow = 0
 
 [node name="CSGCylinder3" type="CSGCylinder" parent="Navigation/NavigationMeshInstance/LampShade"]
@@ -209,7 +211,7 @@ omni_attenuation = 1.1487
 
 [node name="Shelf" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44552, 1.55218, -1.53783 )
-material_override = SubResource( 8 )
+material_override = SubResource( 9 )
 use_collision = true
 
 [node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/Shelf"]
@@ -244,7 +246,7 @@ height = 0.42775
 
 [node name="Couch" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 0.998022, 0, 0.0628602, 0, 1, 0, -0.0628602, 0, 0.998022, -0.337598, 0.707924, 0.825035 )
-material_override = SubResource( 9 )
+material_override = SubResource( 10 )
 use_collision = true
 
 [node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/Couch"]
@@ -266,7 +268,7 @@ height = 2.0649
 
 [node name="Chair" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 0.550466, 0, -0.834857, 0, 1, 0, 0.834857, 0, 0.550466, 3.75107, 0.707924, 1.94827 )
-material_override = SubResource( 10 )
+material_override = SubResource( 11 )
 use_collision = true
 
 [node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/Chair"]
@@ -300,7 +302,7 @@ height = 2.0649
 
 [node name="Table" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0377949, 0.707924, 3.64104 )
-material_override = SubResource( 11 )
+material_override = SubResource( 12 )
 use_collision = true
 
 [node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/Table"]
@@ -325,7 +327,7 @@ depth = 2.54532
 
 [node name="Bowl" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0377949, 0.730906, 3.64104 )
-material_override = SubResource( 12 )
+material_override = SubResource( 13 )
 use_collision = true
 
 [node name="CSGSphere" type="CSGSphere" parent="Navigation/NavigationMeshInstance/Bowl"]
@@ -348,7 +350,7 @@ depth = 1.0
 
 [node name="Fruit" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0183378, 1.03474, 3.64104 )
-material_override = SubResource( 13 )
+material_override = SubResource( 14 )
 use_collision = true
 
 [node name="CSGSphere3" type="CSGSphere" parent="Navigation/NavigationMeshInstance/Fruit"]
@@ -372,7 +374,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0401129, 0.928513, 3.28886 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Food"]
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Bed" type="Area" parent="." groups=[
 "bed",
@@ -381,7 +383,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67687, 0.928513, -3.19391 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Bed"]
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="Chair" type="Area" parent="." groups=[
 "chair",
@@ -391,4 +393,18 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Chair"]
 transform = Transform( 0.832486, 0, 0.554046, 0, 1, 0, -0.554046, 0, 0.832486, 0, 0, 0 )
-shape = SubResource( 16 )
+shape = SubResource( 17 )
+
+[node name="Door" type="Area" parent="." groups=[
+"door",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0396, 0.659265, -1.93426 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Door"]
+shape = SubResource( 17 )
+
+[node name="3DText" parent="Door" instance=ExtResource( 7 )]
+transform = Transform( 3.99782, -0.0467472, 0.123482, 0, 3.7409, 1.41622, -0.132034, -1.41544, 3.73886, -0.131225, 1.42172, 0.906698 )
+text = ""
+is_billboard = true
