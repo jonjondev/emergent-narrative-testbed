@@ -1,8 +1,6 @@
 class_name HomeStates
 extends GoapStates
 
-var blank_state = []
-
 enum StateConditions {
 	IS_HUNGRY,
 	IS_SLEEPY,

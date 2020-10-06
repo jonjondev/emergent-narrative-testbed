@@ -41,7 +41,7 @@ func on_update():
 				on_action_update()
 
 func on_planning_update():
-	var new_plan = generate_plan(dm_profile.generate_current_state())
+	var new_plan = generate_plan(dm_profile.states.generate_current_state(owner.get_tree().get_nodes_in_group("agent")[0]))
 	if new_plan and current_plan.hash() != new_plan.hash():
 		current_plan = new_plan
 
@@ -49,7 +49,7 @@ func on_action_enter():
 	current_action = current_plan.front() if current_plan else null
 
 func on_action_update():
-	if current_action && GoapPlanner.conditions_valid(dm_profile.generate_current_state(), current_action.preconditions):
+	if current_action && GoapPlanner.conditions_valid(dm_profile.states.generate_current_state(owner.get_tree().get_nodes_in_group("agent")[0]), current_action.preconditions):
 		if not action_setup:
 			current_action.setup()
 			action_setup = true
