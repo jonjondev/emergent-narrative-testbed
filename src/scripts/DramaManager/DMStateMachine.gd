@@ -60,18 +60,18 @@ func on_action_update():
 	else:
 		current_plan.clear()
 
-func generate_plan(current_state):
-	if GoapPlanner.conditions_valid(current_state, dm_profile.goal_state):
+func generate_plan(initial_state):
+	if GoapPlanner.conditions_valid(initial_state, dm_profile.goal_state):
 		return null
 	for agent_profile in agent_profiles:
-		if not state_meets_goals(current_state, agent_profile, dm_profile.goal_state):
+		if not state_meets_goals(initial_state, agent_profile, dm_profile.goal_state):
 			for action in dm_profile.actions:
-				var new_state = GoapPlanner.apply_effects(current_state, action.effects)
+				var new_state = GoapPlanner.apply_effects(initial_state, action.effects)
 				if state_meets_goals(new_state, agent_profile, dm_profile.goal_state):
 					return [action]
 
-func state_meets_goals(current_state, profile, goals):
-	var plan = GoapPlanner.generate_plan(current_state, profile)
+func state_meets_goals(initial_state, profile, goals):
+	var plan = GoapPlanner.generate_plan(initial_state, profile)
 	if plan:
 		return contains_desired_effects(plan, goals)
 

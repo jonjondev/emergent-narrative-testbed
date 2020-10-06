@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/EatAction.gd"
 }, {
-"base": "Reference",
+"base": "GoapStates",
 "class": "ForestStates",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/states/ForestStates.gd"
@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/GoapStateMachine.gd"
 }, {
+"base": "Reference",
+"class": "GoapStates",
+"language": "GDScript",
+"path": "res://src/scripts/GOAP/states/GoapStates.gd"
+}, {
 "base": "GoapAgent",
 "class": "HeroAgent",
 "language": "GDScript",
@@ -69,7 +74,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/profiles/HomeAgent.gd"
 }, {
-"base": "Reference",
+"base": "GoapStates",
 "class": "HomeStates",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/states/HomeStates.gd"
@@ -130,6 +135,7 @@ _global_script_class_icons={
 "GoapAgent": "",
 "GoapPlanner": "",
 "GoapStateMachine": "",
+"GoapStates": "",
 "HeroAgent": "",
 "HomeAgent": "",
 "HomeStates": "",
