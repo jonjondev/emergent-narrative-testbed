@@ -13,7 +13,7 @@ func _init(o).(o):
 	}
 
 func setup() -> void:
-	target = owner.blackboard.get("treasure")[0]
+	target = owner.get_closest("treasure")
 	owner.emote("*plundering*")
 
 func perform():

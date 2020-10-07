@@ -13,7 +13,7 @@ func _init(o).(o):
 	}
 
 func setup() -> void:
-	target = owner.blackboard.get("food")[0]
+	target = owner.get_closest("food")
 	owner.emote("*hungry*")
 
 func perform():

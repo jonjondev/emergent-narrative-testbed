@@ -14,7 +14,7 @@ func _init(o).(o):
 	}
 
 func setup() -> void:
-	target = owner.blackboard.get("door")[0]
+	target = owner.get_closest("door")
 	owner.emote("*checking*")
 
 func perform():

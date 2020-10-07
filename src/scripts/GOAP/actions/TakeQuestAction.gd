@@ -13,7 +13,7 @@ func _init(o).(o):
 	}
 
 func setup() -> void:
-	target = owner.blackboard.get("questgiver")[0]
+	target = owner.get_closest("questgiver")
 	owner.emote("*quest-finding*")
 
 func perform():

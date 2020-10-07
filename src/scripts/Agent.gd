@@ -36,6 +36,9 @@ func ai_process() -> void:
 func emote(text: String) -> void:
 	emote_text.text = text + "\n" + character_name
 
+func get_closest(group: String) -> Node:
+	return navigation.get_closest(blackboard.get(group))
+
 func percieve(area) -> void:
 	if area is SmartObject and area.self_value != self:
 		for group in area.get_groups():
