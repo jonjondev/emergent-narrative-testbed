@@ -10,7 +10,6 @@ var current_state: int = State.PLANNING
 
 # Planning fields
 var dm_profile: DMAgent
-var current_plan: Array = []
 
 # Action fields
 var action_setup: bool = false
@@ -24,16 +23,15 @@ func on_update():
 	match(current_state):
 		State.PLANNING:
 			# Action transition
-			if current_plan and not current_plan.empty():
+			if current_action:
 				current_state = State.ACTION
-				on_action_enter()
 				on_action_update()
 			# Planning update
 			else:
 				on_planning_update()
 		State.ACTION:
 			# Planning transition
-			if current_plan.empty():
+			if not current_action:
 				current_state = State.PLANNING
 				on_planning_update()
 			# Action update
@@ -41,12 +39,9 @@ func on_update():
 				on_action_update()
 
 func on_planning_update():
-	var new_plan = generate_plan(dm_profile.states.generate_current_state(owner.get_tree().get_nodes_in_group("agent")[0]))
-	if new_plan and current_plan.hash() != new_plan.hash():
-		current_plan = new_plan
-
-func on_action_enter():
-	current_action = current_plan.front() if current_plan else null
+	var new_action = generate_plan(dm_profile.states.generate_current_state(owner.get_tree().get_nodes_in_group("agent")[0]))
+	if new_action != current_action:
+		current_action = new_action
 
 func on_action_update():
 	if current_action && GoapPlanner.conditions_valid(dm_profile.states.generate_current_state(owner.get_tree().get_nodes_in_group("agent")[0]), current_action.preconditions):
@@ -54,11 +49,10 @@ func on_action_update():
 			current_action.setup()
 			action_setup = true
 		if current_action.perform():
-			current_plan.remove(0)
-			current_action = current_plan.front() if current_plan else null
+			current_action = null
 			action_setup = false
 	else:
-		current_plan.clear()
+		current_action = null
 
 func generate_plan(initial_state):
 	if GoapPlanner.conditions_valid(initial_state, dm_profile.goal_state):
@@ -68,7 +62,7 @@ func generate_plan(initial_state):
 			for action in dm_profile.actions:
 				var new_state = GoapPlanner.apply_effects(initial_state, action.effects)
 				if state_meets_goals(new_state, agent_profile, dm_profile.goal_state):
-					return [action]
+					return action
 
 func state_meets_goals(initial_state, profile, goals):
 	var plan = GoapPlanner.generate_plan(initial_state, profile)
