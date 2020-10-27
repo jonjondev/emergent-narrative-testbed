@@ -6,10 +6,11 @@ var is_complete = false
 
 func _init(o).(o):
 	preconditions = {
+		HomeStates.StateConditions.DOOR_KNOCKED: true,
 		HomeStates.StateConditions.KNOWS_DOOR: true,
 	}
 	effects = {
-		HomeStates.StateConditions.DOOR_UNCHECKED: false,
+		HomeStates.StateConditions.DOOR_KNOCKED: false,
 		HomeStates.StateConditions.DOOR_OPENED: true,
 	}
 

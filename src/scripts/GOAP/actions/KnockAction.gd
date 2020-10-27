@@ -4,7 +4,7 @@ extends GoapAction
 func _init(o).(o):
 	preconditions = {}
 	effects = {
-		HomeStates.StateConditions.DOOR_UNCHECKED: true,
+		HomeStates.StateConditions.DOOR_KNOCKED: true,
 	}
 
 func perform():

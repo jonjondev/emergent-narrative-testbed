@@ -6,13 +6,12 @@ func _init(owner):
 	goal_state = {
 		HomeStates.StateConditions.IS_HUNGRY: false,
 		HomeStates.StateConditions.IS_SLEEPY: false,
-		HomeStates.StateConditions.DOOR_UNCHECKED: false,
+		HomeStates.StateConditions.DOOR_KNOCKED: false,
 	}
 	actions = [
+		SearchAction,
 		EatAction,
 		SleepAction,
-		SearchAction,
 		AnswerDoorAction,
-		#RestAction,
 	]
 	.setup(owner)

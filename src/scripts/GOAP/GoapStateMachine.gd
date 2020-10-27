@@ -73,6 +73,7 @@ func on_action_update():
 			action_setup = false
 	else:
 		current_plan.clear()
+		action_setup = false
 
 func on_navigation_enter():
 	owner.navigation.navigate_to(get_target_vector())

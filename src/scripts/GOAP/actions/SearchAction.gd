@@ -8,6 +8,7 @@ func _init(o).(o):
 		HomeStates.StateConditions.KNOWS_FOOD: true,
 		HomeStates.StateConditions.KNOWS_BED: true,
 		HomeStates.StateConditions.KNOWS_CHAIR: true,
+		HomeStates.StateConditions.KNOWS_DOOR: true,
 		#ForestStates.StateConditions.KNOWS_QUESTGIVER: true,
 		#ForestStates.StateConditions.KNOWS_TREASURE: true,
 	}
