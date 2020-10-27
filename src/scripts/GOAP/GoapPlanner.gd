@@ -13,12 +13,11 @@ static func generate_plan(current_state, profile):
 
 static func generate_valid_paths(current_state, profile):
 	var found_plans = []
-	var checked_actions = []
 	var potential_state_paths = [new_state_path(current_state, [])]
 	while not potential_state_paths.empty():
 		var state_path = potential_state_paths.pop_front()
 		for action in profile.actions:
-			if checked_actions.has(action):
+			if state_path.actions.has(action):
 				continue
 			if conditions_valid(state_path.conditions, action.preconditions):
 				var new_actions = state_path.actions.duplicate()
@@ -28,7 +27,6 @@ static func generate_valid_paths(current_state, profile):
 					found_plans.append(new_actions)
 				else:
 					potential_state_paths.append(new_state_path(action_state, new_actions))
-					checked_actions.append(action)
 	return found_plans
 
 static func conditions_valid(state, conditions):
