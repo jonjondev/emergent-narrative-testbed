@@ -57,6 +57,7 @@ func on_planning_update():
 	var new_plan = GoapPlanner.generate_plan(agent_profile.states.generate_current_state(owner), agent_profile)
 	if new_plan and current_plan.hash() != new_plan.hash():
 		current_plan = new_plan
+		GoapPlanner.print_plan(current_plan)
 
 func on_action_enter():
 	current_action = current_plan.front() if current_plan else null

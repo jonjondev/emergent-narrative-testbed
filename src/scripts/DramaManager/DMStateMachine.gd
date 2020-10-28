@@ -39,9 +39,14 @@ func on_update():
 				on_action_update()
 
 func on_planning_update():
-	var new_action = generate_plan(dm_profile.states.generate_current_state(owner.get_tree().get_nodes_in_group("agent")[0]))
-	if new_action != current_action:
-		current_action = new_action
+	var agents = owner.get_tree().get_nodes_in_group("agent")
+	var potential_actions = []
+	for agent in agents:
+		var new_action = generate_plan(dm_profile.states.generate_current_state(agent))
+		if new_action:
+			potential_actions.append(new_action)
+	if potential_actions.size() > 0 and potential_actions[0] != current_action:
+		current_action = potential_actions[0]
 
 func on_action_update():
 	if current_action && GoapPlanner.conditions_valid(dm_profile.states.generate_current_state(owner.get_tree().get_nodes_in_group("agent")[0]), current_action.preconditions):
@@ -70,7 +75,6 @@ func state_meets_goals(initial_state, profile, goals):
 		return contains_desired_effects(plan, goals)
 
 func contains_desired_effects(plan, goals):
-	GoapPlanner.print_plan(plan)
 	for action in plan:
 		for key in action.effects.keys():
 			if goals.has(key) and goals[key] == action.effects[key]:
