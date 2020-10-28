@@ -1,15 +1,10 @@
 class_name GoapPlanner
 
 static func generate_plan(current_state, profile):
-	if conditions_valid(current_state, profile.goal_state):
-		return null
-	var potential_plans = generate_valid_paths(current_state, profile)
-	var selected_plan_idx = 0
-	if potential_plans.size() > 0:
-		while contains_indirection(potential_plans[selected_plan_idx]) and selected_plan_idx < potential_plans.size() - 1:
-			selected_plan_idx += 1
-		return potential_plans[selected_plan_idx]
-	return []
+	if !conditions_valid(current_state, profile.goal_state):
+		var potential_plans = generate_valid_paths(current_state, profile)
+		potential_plans.sort_custom(PlanSorter, "indirection_length_sort")
+		return potential_plans[0] if potential_plans.size() > 0 else []
 
 static func generate_valid_paths(current_state, profile):
 	var found_plans = []
@@ -41,12 +36,6 @@ static func apply_effects(state, effects):
 		new_state[effect] = effects[effect]
 	return new_state
 
-static func contains_indirection(plan):
-	for action in plan:
-		if action.is_indirect:
-			return true
-	return false
-
 static func new_state_path(conditions, actions):
 	return { "conditions": conditions, "actions": actions}
 
@@ -58,3 +47,18 @@ static func print_plan(plan):
 	for action in plan:
 		p += (get_script_name(action) + ", ")
 	print(p.rstrip(", ") + "]")
+
+class PlanSorter:
+	static func indirection_length_sort(a, b):
+		var a_indirection = contains_indirection(a)
+		var b_indirection = contains_indirection(b)
+		if a_indirection == b_indirection:
+			return a.size() < b.size()
+		else:
+			return not a_indirection
+	
+	static func contains_indirection(plan):
+		for action in plan:
+			if action.is_indirect:
+				return true
+		return false
