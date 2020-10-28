@@ -37,12 +37,9 @@ func on_update():
 				on_action_update()
 
 func on_planning_update():
-	print(dm_profile.goal_state.size())
 	if dm_profile.goal_state.empty() and not dm_profile.goal_states.empty():
-		var new_key = dm_profile.goal_states.keys()[0]
-		var new_value = dm_profile.goal_states[new_key]
-		dm_profile.goal_state[new_key] = new_value
-		dm_profile.goal_states.erase(new_key)
+		var new_state = dm_profile.goal_states.pop_front()
+		dm_profile.goal_state[new_state.condition] = new_state.value
 	var agents = owner.get_tree().get_nodes_in_group("agent")
 	if agents.size() > 0:
 		current_action = generate_dm_plan(dm_profile.states.generate_current_state(agents[0]), agents)
@@ -72,8 +69,7 @@ func generate_dm_plan(initial_state, agents):
 
 func state_meets_goals(initial_state, profile, goals):
 	var plan = GoapPlanner.generate_plan(initial_state, profile)
-	if plan:
-		return contains_desired_effects(plan, goals)
+	return contains_desired_effects(plan, goals.duplicate()) if plan else null
 
 func contains_desired_effects(plan, goals):
 	for action in plan:

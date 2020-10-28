@@ -290,6 +290,11 @@ width = 1.14559
 height = 0.424282
 depth = 0.541002
 
+[node name="3DText" parent="Navigation/NavigationMeshInstance/Fire" instance=ExtResource( 7 )]
+transform = Transform( 2.99345, 0.068824, -0.0620215, 0, 2.81368, 0.346921, 0.198386, -1.03848, 0.935842, -0.027141, 0.17381, 0.430848 )
+text = "*Fire*"
+is_billboard = true
+
 [node name="Chair" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 0.550466, 0, -0.834857, 0, 1, 0, 0.834857, 0, 0.550466, 3.75107, 0.707924, 1.94827 )
 material_override = SubResource( 12 )

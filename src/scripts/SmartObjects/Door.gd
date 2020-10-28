@@ -5,7 +5,7 @@ var opened = false
 var knocked = false
 
 func _init().():
-	action_name = "*answering*"
+	action_name = ""
 	action_length = 0.5
 
 func interact(partner) -> Dictionary:

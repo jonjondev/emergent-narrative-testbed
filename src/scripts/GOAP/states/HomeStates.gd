@@ -5,6 +5,7 @@ enum StateConditions {
 	IS_HUNGRY,
 	IS_SLEEPY,
 	IS_SAFE,
+	IS_HOME,
 	HAS_GUN,
 	DOOR_KNOCKED,
 	DOOR_OPENED,
@@ -20,6 +21,7 @@ static func generate_current_state(owner):
 	current_state[StateConditions.IS_HUNGRY] = owner.blackboard.get("hunger") <= 0
 	current_state[StateConditions.IS_SLEEPY] = owner.blackboard.get("energy") <= 0
 	current_state[StateConditions.IS_SAFE] = not any_threats(owner)
+	current_state[StateConditions.IS_HOME] = owner != null
 	current_state[StateConditions.HAS_GUN] = owner.blackboard.get("has_gun") == true
 	current_state[StateConditions.DOOR_KNOCKED] = any_doors_knocked(owner)
 	current_state[StateConditions.DOOR_OPENED] = any_doors_opened(owner)

@@ -15,7 +15,7 @@ func _init(o).(o):
 
 func setup() -> void:
 	target = owner.get_closest("door")
-	owner.emote("*checking*")
+	owner.emote("*opening door*")
 
 func perform():
 	if not is_initialised and owner.navigation.is_near(target.translation, 1.5):

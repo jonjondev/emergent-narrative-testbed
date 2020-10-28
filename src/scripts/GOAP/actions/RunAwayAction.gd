@@ -11,6 +11,7 @@ func _init(o).(o):
 	}
 	effects = {
 		HomeStates.StateConditions.IS_SAFE: true,
+		HomeStates.StateConditions.IS_HOME: false,
 	}
 
 func setup() -> void:
