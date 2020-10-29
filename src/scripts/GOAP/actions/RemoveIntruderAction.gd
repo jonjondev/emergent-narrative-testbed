@@ -1,22 +1,21 @@
-class_name RunAwayAction
+class_name RemoveIntruderAction
 extends GoapAction
 
 var is_initialised = false
 var is_complete = false
 
 func _init(o).(o):
-	is_indirect = true
 	preconditions = {
-		HomeStates.StateConditions.DOOR_OPENED: true,
+		HomeStates.StateConditions.HAS_GUN: true,
 	}
 	effects = {
 		HomeStates.StateConditions.IS_SAFE: true,
-		HomeStates.StateConditions.IS_HOME: false,
+		HomeStates.StateConditions.HAS_GUN: false,
 	}
 
 func setup() -> void:
-	target = owner.get_tree().get_nodes_in_group("exit")[0]
-	owner.emote("*running away*")
+	target = owner.get_tree().get_nodes_in_group("intruder")[0]
+	owner.emote("*removing intruder*")
 
 func perform():
 	if not is_initialised and owner.navigation.is_near(target.translation, 1.5):

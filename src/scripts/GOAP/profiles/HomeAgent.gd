@@ -10,11 +10,12 @@ func _init(owner):
 		HomeStates.StateConditions.DOOR_KNOCKED: false,
 	}
 	actions = [
-		RunAwayAction,
-		SearchAction,
 		PickupGunAction,
+		RemoveIntruderAction,
+		RunAwayAction,
 		AnswerDoorAction,
 		EatAction,
 		SleepAction,
+		SearchAction,
 	]
 	.setup(owner)

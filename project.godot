@@ -100,6 +100,11 @@ _global_script_classes=[ {
 "path": "res://src/scripts/GOAP/actions/PickupTreasureAction.gd"
 }, {
 "base": "GoapAction",
+"class": "RemoveIntruderAction",
+"language": "GDScript",
+"path": "res://src/scripts/GOAP/actions/RemoveIntruderAction.gd"
+}, {
+"base": "GoapAction",
 "class": "RestAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/RestAction.gd"
@@ -123,6 +128,11 @@ _global_script_classes=[ {
 "class": "SmartObject",
 "language": "GDScript",
 "path": "res://src/scripts/SmartObjects/SmartObject.gd"
+}, {
+"base": "GoapAction",
+"class": "SpawnIntruder",
+"language": "GDScript",
+"path": "res://src/scripts/GOAP/actions/SpawnIntruderAction.gd"
 }, {
 "base": "GoapAction",
 "class": "StartFireAction",
@@ -153,11 +163,13 @@ _global_script_class_icons={
 "PerformQuestAction": "",
 "PickupGunAction": "",
 "PickupTreasureAction": "",
+"RemoveIntruderAction": "",
 "RestAction": "",
 "RunAwayAction": "",
 "SearchAction": "",
 "SleepAction": "",
 "SmartObject": "",
+"SpawnIntruder": "",
 "StartFireAction": "",
 "TakeQuestAction": ""
 }

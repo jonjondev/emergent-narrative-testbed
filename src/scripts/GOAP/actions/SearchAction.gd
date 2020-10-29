@@ -7,11 +7,8 @@ func _init(o).(o):
 	effects = {
 		HomeStates.StateConditions.KNOWS_FOOD: true,
 		HomeStates.StateConditions.KNOWS_BED: true,
-		HomeStates.StateConditions.KNOWS_CHAIR: true,
 		HomeStates.StateConditions.KNOWS_DOOR: true,
 		HomeStates.StateConditions.KNOWS_GUN: true,
-		#ForestStates.StateConditions.KNOWS_QUESTGIVER: true,
-		#ForestStates.StateConditions.KNOWS_TREASURE: true,
 	}
 
 func setup() -> void:
