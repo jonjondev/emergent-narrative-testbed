@@ -105,11 +105,6 @@ _global_script_classes=[ {
 "path": "res://src/scripts/GOAP/actions/RemoveIntruderAction.gd"
 }, {
 "base": "GoapAction",
-"class": "RestAction",
-"language": "GDScript",
-"path": "res://src/scripts/GOAP/actions/RestAction.gd"
-}, {
-"base": "GoapAction",
 "class": "RunAwayAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/RunAwayAction.gd"
@@ -164,7 +159,6 @@ _global_script_class_icons={
 "PickupGunAction": "",
 "PickupTreasureAction": "",
 "RemoveIntruderAction": "",
-"RestAction": "",
 "RunAwayAction": "",
 "SearchAction": "",
 "SleepAction": "",
