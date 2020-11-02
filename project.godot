@@ -138,6 +138,11 @@ _global_script_classes=[ {
 "class": "TakeQuestAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/TakeQuestAction.gd"
+}, {
+"base": "GoapAction",
+"class": "UseSmartObjectAction",
+"language": "GDScript",
+"path": "res://src/scripts/GOAP/actions/UseSmartObjectAction.gd"
 } ]
 _global_script_class_icons={
 "AnswerDoorAction": "",
@@ -165,7 +170,8 @@ _global_script_class_icons={
 "SmartObject": "",
 "SpawnIntruder": "",
 "StartFireAction": "",
-"TakeQuestAction": ""
+"TakeQuestAction": "",
+"UseSmartObjectAction": ""
 }
 
 [application]
