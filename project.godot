@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "GoapAction",
+"base": "UseSmartObjectAction",
 "class": "AnswerDoorAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/AnswerDoorAction.gd"
@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/DramaManager/DMStateMachine.gd"
 }, {
-"base": "GoapAction",
+"base": "UseSmartObjectAction",
 "class": "EatAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/EatAction.gd"
@@ -84,27 +84,27 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/NavigationManager.gd"
 }, {
-"base": "GoapAction",
+"base": "UseSmartObjectAction",
 "class": "PerformQuestAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/PerformQuestAction.gd"
 }, {
-"base": "GoapAction",
+"base": "UseSmartObjectAction",
 "class": "PickupGunAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/PickupGunAction.gd"
 }, {
-"base": "GoapAction",
+"base": "UseSmartObjectAction",
 "class": "PickupTreasureAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/PickupTreasureAction.gd"
 }, {
-"base": "GoapAction",
+"base": "UseSmartObjectAction",
 "class": "RemoveIntruderAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/RemoveIntruderAction.gd"
 }, {
-"base": "GoapAction",
+"base": "UseSmartObjectAction",
 "class": "RunAwayAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/RunAwayAction.gd"
@@ -114,7 +114,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/SearchAction.gd"
 }, {
-"base": "GoapAction",
+"base": "UseSmartObjectAction",
 "class": "SleepAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/SleepAction.gd"
@@ -134,7 +134,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/StartFireAction.gd"
 }, {
-"base": "GoapAction",
+"base": "UseSmartObjectAction",
 "class": "TakeQuestAction",
 "language": "GDScript",
 "path": "res://src/scripts/GOAP/actions/TakeQuestAction.gd"

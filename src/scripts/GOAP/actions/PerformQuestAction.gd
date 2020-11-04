@@ -1,5 +1,5 @@
 class_name PerformQuestAction
-extends GoapAction
+extends UseSmartObjectAction
 
 func _init(o).(o):
 	preconditions = {
@@ -12,12 +12,3 @@ func _init(o).(o):
 func setup() -> void:
 	target = owner.blackboard.get("quest")
 	owner.emote("*questing*")
-
-func perform():
-	if owner.navigation.is_near(target, 1.5):
-		reset()
-		return true
-	return false
-
-func reset() -> void:
-	owner.emote("")
