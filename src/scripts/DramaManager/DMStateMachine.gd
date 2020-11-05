@@ -45,13 +45,13 @@ func on_planning_update():
 func on_action_update():
 	if current_action && GoapPlanner.conditions_valid(dm_profile.states.generate_current_state(owner.get_tree().get_nodes_in_group("agent")[0]), current_action.preconditions):
 		if not action_setup:
-			var failure = current_action.setup()
-			if failure:
-				failed_actions += 1
-			else:
+			if current_action.setup():
 				failed_actions = 0
-			action_setup = true
-		if current_action.perform():
+				action_setup = true
+			else:
+				failed_actions += 1
+				current_action = null
+		if action_setup and current_action.perform():
 			current_action = null
 			action_setup = false
 	else:

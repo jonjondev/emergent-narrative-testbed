@@ -12,7 +12,7 @@ func _init(o).(o):
 func setup() -> bool:
 	return intruder_available
 
-func perform():
-	owner.get_tree().get_nodes_in_group("intruder")[0].intrude()
+func perform() -> bool:
 	intruder_available = false
+	owner.get_tree().get_nodes_in_group("intruder")[0].intrude()
 	return true

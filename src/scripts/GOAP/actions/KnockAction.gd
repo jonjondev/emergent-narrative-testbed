@@ -7,6 +7,6 @@ func _init(o).(o):
 		HomeStates.StateConditions.DOOR_KNOCKED: true,
 	}
 
-func perform():
+func perform() -> bool:
 	owner.get_tree().get_nodes_in_group("door")[0].knock()
 	return true

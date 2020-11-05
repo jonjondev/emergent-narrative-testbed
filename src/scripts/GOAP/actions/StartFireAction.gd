@@ -7,6 +7,6 @@ func _init(o).(o):
 		HomeStates.StateConditions.IS_SAFE: false,
 	}
 
-func perform():
+func perform() -> bool:
 	owner.get_tree().get_nodes_in_group("fire")[0].start_fire()
 	return true

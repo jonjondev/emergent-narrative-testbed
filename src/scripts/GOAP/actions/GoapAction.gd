@@ -10,7 +10,7 @@ func _init(o):
 	owner = o
 
 func setup() -> bool:
-	return false
+	return true
 
 func perform() -> bool:
 	return false
