@@ -1,9 +1,9 @@
 class_name GoapAgent
 
+var owner
 var goal_state: Dictionary
 var actions: Array
 var states
-var owner
 
 func setup(o):
 	owner = o

@@ -2,20 +2,16 @@ class_name GoapStateMachine
 
 enum State { PLANNING, ACTION, NAVIGATION }
 
-# State machine fields
-var owner: Node
-var current_state: int = State.PLANNING
+const MINIMUM_DISTANCE: float = 1.5
 
-# Planning fields
+var owner: Node
 var agent_profile: GoapAgent
+
+var current_state: int = State.PLANNING
 var current_plan: Array = []
 
-# Action fields
-var action_setup: bool = false
 var current_action: GoapAction = null
-
-# Navigation fields
-const MINIMUM_DISTANCE: float = 1.5
+var action_setup: bool = false
 var target = null
 
 func _init(o, profile):
@@ -47,7 +43,7 @@ func on_update():
 				on_action_update()
 		State.NAVIGATION:
 			# Action transition
-			if owner.navigation.is_near(get_target_vector(), MINIMUM_DISTANCE):
+			if owner.navigation.is_near(get_as_location(target), MINIMUM_DISTANCE):
 				target = null
 				current_state = State.ACTION
 				on_action_enter()
@@ -65,7 +61,7 @@ func on_action_enter():
 func on_action_update():
 	if current_action && GoapPlanner.conditions_valid(agent_profile.states.generate_current_state(owner), current_action.preconditions):
 		if not action_setup:
-			current_action.setup()
+			var _success = current_action.setup()
 			target = current_action.target
 			action_setup = true
 		if current_action.perform():
@@ -77,7 +73,7 @@ func on_action_update():
 		action_setup = false
 
 func on_navigation_enter():
-	owner.navigation.navigate_to(get_target_vector())
+	owner.navigation.navigate_to(get_as_location(target))
 
-func get_target_vector():
-	return target if target is Vector3 else target.translation
+static func get_as_location(object):
+	return object if object is Vector3 else object.translation
