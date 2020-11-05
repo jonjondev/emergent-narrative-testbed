@@ -9,6 +9,7 @@ func _init(o).(o):
 		HomeStates.StateConditions.IS_SLEEPY: false,
 	}
 
-func setup() -> void:
+func setup() -> bool:
 	target = owner.get_closest("bed")
 	owner.emote("*sleepy*")
+	return true

@@ -10,6 +10,7 @@ func _init(o).(o):
 		HomeStates.StateConditions.HAS_GUN: false,
 	}
 
-func setup() -> void:
+func setup() -> bool:
 	target = owner.get_tree().get_nodes_in_group("intruder")[0]
 	owner.emote("*removing intruder*")
+	return true

@@ -10,6 +10,7 @@ func _init(o).(o):
 		HomeStates.StateConditions.DOOR_OPENED: true,
 	}
 
-func setup() -> void:
+func setup() -> bool:
 	target = owner.get_closest("door")
 	owner.emote("*opening door*")
+	return true

@@ -9,7 +9,7 @@ func _init(o).(o):
 		HomeStates.StateConditions.IS_SAFE: false,
 	}
 
-func setup():
+func setup() -> bool:
 	return intruder_available
 
 func perform():

@@ -9,6 +9,7 @@ func _init(o).(o):
 		HomeStates.StateConditions.HAS_GUN: true,
 	}
 
-func setup() -> void:
+func setup() -> bool:
 	target = owner.get_closest("gun")
 	owner.emote("*getting gun*")
+	return true

@@ -11,6 +11,7 @@ func _init(o).(o):
 		HomeStates.StateConditions.IS_HOME: false,
 	}
 
-func setup() -> void:
+func setup() -> bool:
 	target = owner.get_tree().get_nodes_in_group("exit")[0]
 	owner.emote("*running away*")
+	return true

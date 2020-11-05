@@ -9,8 +9,8 @@ var is_indirect
 func _init(o):
 	owner = o
 
-func perform() -> bool:
+func setup() -> bool:
 	return false
 
-func setup() -> void:
-	pass
+func perform() -> bool:
+	return false

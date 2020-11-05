@@ -9,6 +9,7 @@ func _init(o).(o):
 		ForestStates.StateConditions.KNOWS_TREASURE: true,
 	}
 
-func setup() -> void:
+func setup() -> bool:
 	target = owner.blackboard.get("quest")
 	owner.emote("*questing*")
+	return true

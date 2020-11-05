@@ -9,6 +9,7 @@ func _init(o).(o):
 		ForestStates.StateConditions.HAS_TREASURE: true,
 	}
 
-func setup() -> void:
+func setup() -> bool:
 	target = owner.get_closest("treasure")
 	owner.emote("*plundering*")
+	return true

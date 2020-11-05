@@ -9,6 +9,7 @@ func _init(o).(o):
 		HomeStates.StateConditions.IS_HUNGRY: false,
 	}
 
-func setup() -> void:
+func setup() -> bool:
 	target = owner.get_closest("food")
 	owner.emote("*hungry*")
+	return true

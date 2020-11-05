@@ -9,6 +9,7 @@ func _init(o).(o):
 		ForestStates.StateConditions.HAS_QUEST: true,
 	}
 
-func setup() -> void:
+func setup() -> bool:
 	target = owner.get_closest("questgiver")
 	owner.emote("*quest-finding*")
+	return true
